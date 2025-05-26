@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #fdfdfd;
+  color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.hero {
+  padding: 2rem;
+}
+
+h1.subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #8e44ad;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+.description {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #7f8c8d;
+}
+
+.timer {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 1em;
+  color: #34495e;
+}
