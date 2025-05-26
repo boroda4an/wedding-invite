@@ -1,0 +1,16 @@
+
+.petal {
+  position: fixed;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background: url('petal.svg') no-repeat center/contain;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
