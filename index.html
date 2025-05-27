@@ -66,8 +66,8 @@
     </section>
     <section class="glass" id="celebrate">
       <h2>Быть с нами — лучшая радость!</h2>
-      <form id="rsvpForm">
-        <div class="form-row">
+      <form id="rsvpForm" autocomplete="off">
+        <div class="form-row two-cols">
           <input type="text" name="firstname" placeholder="Имя" required>
           <input type="text" name="lastname" placeholder="Фамилия" required>
         </div>
@@ -83,7 +83,9 @@
         <div class="form-row">
           <input type="text" name="whatsapp" placeholder="WhatsApp (по желанию)">
         </div>
-        <button type="submit" class="btn main-btn">Я буду с вами!</button>
+        <div class="form-row">
+          <button type="submit" class="btn main-btn">Я буду с вами!</button>
+        </div>
       </form>
       <p class="thanks" id="thanks-message" style="display:none;">
         <span class="thanks-heart">🌸</span><br>
@@ -142,45 +144,6 @@
       <p>© 2025 Роман и Виктория</p>
     </div>
   </footer>
-  <script>
-  // Таймер обратного отсчета
-  function updateTimer() {
-    const eventDate = new Date("2025-07-19T14:00:00+03:00");
-    const now = new Date();
-    const diff = eventDate - now;
-    let html;
-    if (diff <= 0) {
-      html = "<div class='count-el'><span class='count-num'>0</span><span class='count-label'>дней</span></div>";
-    } else {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      html = `
-        <div class="count-el"><span class="count-num">${days}</span><span class="count-label">дней</span></div>
-        <div class="count-el"><span class="count-num">${hours.toString().padStart(2, '0')}</span><span class="count-label">ч</span></div>
-        <div class="count-el"><span class="count-num">${minutes.toString().padStart(2, '0')}</span><span class="count-label">м</span></div>
-        <div class="count-el"><span class="count-num">${seconds.toString().padStart(2, '0')}</span><span class="count-label">с</span></div>
-      `;
-    }
-    document.getElementById('timer').innerHTML = html;
-  }
-  setInterval(updateTimer, 1000);
-  updateTimer();
-
-  // Отправка формы и показ благодарности
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('rsvpForm');
-    const thanks = document.getElementById('thanks-message');
-    if(form) {
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        form.style.display = "none";
-        thanks.style.display = "block";
-        setTimeout(()=>thanks.scrollIntoView({behavior:'smooth', block:'center'}),500);
-      });
-    }
-  });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
