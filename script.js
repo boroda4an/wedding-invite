@@ -1,11 +1,3 @@
-// Preloader
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.getElementById('preloader').style.opacity = 0;
-    setTimeout(() => document.getElementById('preloader').remove(), 700);
-  }, 900);
-});
-
 // Countdown Timer
 function updateTimer() {
   const weddingDate = new Date('2025-07-19T16:00:00+03:00');
@@ -25,48 +17,27 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// Fade-in on scroll (for fallback and mobile)
-function fadeInOnScroll() {
-  document.querySelectorAll('.fade-in').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', fadeInOnScroll);
-window.addEventListener('DOMContentLoaded', fadeInOnScroll);
-
-// Locomotive-scroll for smooth + parallax
-let scroll;
-if(window.innerWidth > 650) {
-  scroll = new LocomotiveScroll({
-    el: document.body,
-    smooth: true,
-    lerp: 0.09,
-    getSpeed: true
-  });
-  scroll.on('scroll', fadeInOnScroll);
-}
-
-// GLightbox for gallery
-const lightbox = GLightbox({selector: '.glightbox', touchNavigation: true});
-
-// Smooth scroll for anchor links (with offset for sticky nav, if any)
-document.querySelectorAll('.scroll-link').forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    let id = this.getAttribute('href').replace('#', '');
-    let target = document.getElementById(id);
-    if(target) {
-      let y = target.getBoundingClientRect().top + window.pageYOffset - 30;
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
+// Gallery: zoom on click
+document.querySelectorAll('.gallery-img').forEach(img => {
+  img.addEventListener('click', function() {
+    const bg = document.createElement('div');
+    bg.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:9999;display:flex;align-items:center;justify-content:center;';
+    const big = document.createElement('img');
+    big.src = this.src;
+    big.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:1.7em;box-shadow:0 4px 54px #000a;';
+    bg.appendChild(big);
+    bg.onclick = () => bg.remove();
+    document.body.appendChild(bg);
   });
 });
 
-// RSVP form (example: just show thank you)
-document.getElementById('rsvpForm').onsubmit = function(e) {
-  e.preventDefault();
-  document.querySelector('.thanks').classList.remove('hidden');
-  setTimeout(() => document.querySelector('.thanks').classList.add('hidden'), 5000);
-  this.reset();
-};
+// RSVP form
+const rsvpForm = document.getElementById('rsvpForm');
+if (rsvpForm) {
+  rsvpForm.onsubmit = function(e) {
+    e.preventDefault();
+    document.querySelector('#rsvp .thanks').classList.remove('hidden');
+    setTimeout(() => document.querySelector('#rsvp .thanks').classList.add('hidden'), 5000);
+    this.reset();
+  };
+}
