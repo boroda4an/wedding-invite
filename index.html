@@ -4,164 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Свадьба Александра и Екатерины | 19.07.2025</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 </head>
 <body>
-
-  <div id="preloader"><span></span></div>
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero" data-scroll-section>
-    <video class="background-video" autoplay loop muted playsinline>
+  <div class="video-bg-wrap">
+    <video class="video-bg" autoplay loop muted playsinline>
       <source src="wedding-bg.mp4" type="video/mp4">
-      Ваш браузер не поддерживает видео фон.
     </video>
-    <div class="hero-overlay"></div>
+    <div class="video-bg-overlay"></div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <span>💍</span>
+        <span>Alex & Kate</span>
+      </div>
+      <nav>
+        <a href="#story">Love Story</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#timeline">Программа</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#map">Локация</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero glass">
     <div class="hero-content">
-      <h1><span>Свадьба</span><br>Александра и Екатерины</h1>
-      <p class="hero-date">19 июля 2025, Москва</p>
+      <h1>Александр <span>&</span> Екатерина</h1>
+      <p class="hero-date">19 июля 2025 &mdash; Москва</p>
       <div class="countdown" id="timer"></div>
-      <a href="#rsvp" class="btn btn-main scroll-link">Подтвердить участие</a>
+      <a href="#rsvp" class="btn main-btn">Подтвердить участие</a>
     </div>
-    <svg class="hero-bottom-svg" viewBox="0 0 1440 180"><path fill="#fff" d="M0,160L60,144C120,128,240,96,360,80C480,64,600,64,720,90.7C840,117,960,171,1080,186.7C1200,203,1320,181,1380,170.7L1440,160V180H0Z"></path></svg>
   </section>
 
-  <!-- LOVE STORY -->
-  <section class="lovestory" id="lovestory" data-scroll-section>
-    <div class="container">
-      <h2 data-scroll data-scroll-speed="1">Наша история любви</h2>
-      <div class="story-flex">
-        <div class="story-photo fade-in" data-scroll data-scroll-speed="2">
-          <img src="gallery1.jpg" alt="Love Story 1">
-        </div>
-        <div class="story-text fade-in" data-scroll data-scroll-speed="1.5">
-          <p>История началась летом 2018 года на берегу моря. Мы нашли друг друга среди миллионов, чтобы однажды сказать: “Да!”</p>
-        </div>
-      </div>
-      <div class="story-flex reverse">
-        <div class="story-text fade-in" data-scroll data-scroll-speed="1.5">
-          <p>Вместе мы путешествовали, мечтали и строили планы. И теперь ждём вас разделить с нами этот особенный день!</p>
-        </div>
-        <div class="story-photo fade-in" data-scroll data-scroll-speed="2">
-          <img src="gallery2.jpg" alt="Love Story 2">
-        </div>
+  <section class="glass" id="story">
+    <h2>Love Story</h2>
+    <div class="story-flex">
+      <img src="gallery1.jpg" alt="Love Story 1" class="story-img">
+      <div>
+        <p>Летом 2018 года наши пути пересеклись на морском побережье. С тех пор мы вместе открываем мир, мечтаем и строим планы.</p>
+        <p>19 июля 2025 мы хотим разделить с вами начало новой главы нашей истории!</p>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="gallery" id="gallery" data-scroll-section>
-    <div class="container">
-      <h2 data-scroll data-scroll-speed="1.2">Фото-галерея</h2>
-      <div class="gallery-grid">
-        <a href="gallery1.jpg" class="glightbox"><img src="gallery1.jpg" alt=""></a>
-        <a href="gallery2.jpg" class="glightbox"><img src="gallery2.jpg" alt=""></a>
-        <a href="gallery3.jpg" class="glightbox"><img src="gallery3.jpg" alt=""></a>
-        <a href="gallery4.jpg" class="glightbox"><img src="gallery4.jpg" alt=""></a>
-        <a href="gallery5.jpg" class="glightbox"><img src="gallery5.jpg" alt=""></a>
-      </div>
+  <section class="glass" id="gallery">
+    <h2>Фото-галерея</h2>
+    <div class="gallery-grid">
+      <img src="gallery1.jpg" alt="Фото 1" class="gallery-img">
+      <img src="gallery2.jpg" alt="Фото 2" class="gallery-img">
+      <img src="gallery3.jpg" alt="Фото 3" class="gallery-img">
+      <img src="gallery4.jpg" alt="Фото 4" class="gallery-img">
+      <img src="gallery5.jpg" alt="Фото 5" class="gallery-img">
     </div>
   </section>
 
-  <!-- TIMELINE -->
-  <section class="timeline-section" id="program" data-scroll-section>
-    <div class="container">
-      <h2 data-scroll data-scroll-speed="1.1">Программа дня</h2>
-      <div class="timeline">
-        <div class="timeline-item fade-in" data-scroll>
-          <span class="timeline-time">16:00</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">Сбор гостей, welcome-drink</div>
-        </div>
-        <div class="timeline-item fade-in" data-scroll>
-          <span class="timeline-time">17:00</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">Торжественная церемония</div>
-        </div>
-        <div class="timeline-item fade-in" data-scroll>
-          <span class="timeline-time">18:00</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">Праздничный ужин</div>
-        </div>
-        <div class="timeline-item fade-in" data-scroll>
-          <span class="timeline-time">20:00</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">Танцы и развлечения</div>
-        </div>
-        <div class="timeline-item fade-in" data-scroll>
-          <span class="timeline-time">23:00</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">Завершение вечера</div>
-        </div>
-      </div>
-    </div>
+  <section class="glass" id="timeline">
+    <h2>Программа дня</h2>
+    <ul class="timeline">
+      <li><span>16:00</span> Сбор гостей, welcome-drink</li>
+      <li><span>17:00</span> Торжественная церемония</li>
+      <li><span>18:00</span> Праздничный ужин</li>
+      <li><span>20:00</span> Танцы и веселье</li>
+      <li><span>23:00</span> Завершение вечера</li>
+    </ul>
   </section>
 
-  <!-- RSVP -->
-  <section class="rsvp-section" id="rsvp" data-scroll-section>
-    <div class="container">
-      <div class="rsvp-card fade-in" data-scroll>
-        <h2>RSVP</h2>
-        <p>Пожалуйста, подтвердите своё присутствие до <b>1 июля 2025</b></p>
-        <form id="rsvpForm">
-          <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <select name="guests">
-            <option value="1">Я приду один/одна</option>
-            <option value="2">Я приду с парой</option>
-            <option value="3">Я приду с семьей</option>
-          </select>
-          <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
-          <button type="submit" class="btn btn-main">Я буду!</button>
-        </form>
-        <p class="thanks hidden">Спасибо за ваш ответ! До встречи на свадьбе!</p>
-      </div>
-      <div class="rsvp-social">
-        <p>Или RSVP через мессенджер:</p>
-        <a class="rsvp-btn tg" href="https://t.me/yourusername" target="_blank">Telegram</a>
-        <a class="rsvp-btn wa" href="https://wa.me/79990000000?text=Я%20буду%20на%20вашей%20свадьбе!" target="_blank">WhatsApp</a>
-      </div>
-    </div>
+  <section class="glass" id="rsvp">
+    <h2>RSVP</h2>
+    <form id="rsvpForm">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <select name="guests">
+        <option value="1">Я приду один/одна</option>
+        <option value="2">Я приду с парой</option>
+        <option value="3">Я приду с семьей</option>
+      </select>
+      <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
+      <button type="submit" class="btn main-btn">Подтвердить</button>
+    </form>
+    <p class="thanks hidden">Спасибо за ваш ответ — до встречи на свадьбе!</p>
   </section>
 
-  <!-- GIFTS -->
-  <section class="gifts-section" id="gifts" data-scroll-section>
-    <div class="container fade-in" data-scroll>
-      <h2>Пожелания по подаркам</h2>
-      <p>Ваше присутствие — лучший подарок!<br>Если хотите нас порадовать, будем рады конвертам, путешествиям, сертификатам или памятным сувенирам.</p>
+  <section class="glass" id="map">
+    <h2>Локация</h2>
+    <div class="map-embed">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6e4d1c2c9f5e6b9c2b927cfb70d2f8c2e9c77a2b9e6c915c3b6d5e9d0b5f4a1f1&amp;source=constructor" width="100%" height="320" frameborder="0"></iframe>
     </div>
+    <a href="https://yandex.ru/maps/?text=Ресторан Летний сад Москва" target="_blank" class="btn outline-btn">Открыть в Яндекс.Картах</a>
   </section>
 
-  <!-- MAP -->
-  <section class="map-section" id="map" data-scroll-section>
-    <div class="container fade-in" data-scroll>
-      <h2>Как добраться</h2>
-      <div class="map-embed">
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6e4d1c2c9f5e6b9c2b927cfb70d2f8c2e9c77a2b9e6c915c3b6d5e9d0b5f4a1f1&amp;source=constructor" width="100%" height="320" frameborder="0"></iframe>
-      </div>
-      <a href="https://yandex.ru/maps/?text=Ресторан Летний сад Москва" target="_blank" class="btn btn-outline">Открыть в Яндекс.Картах</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-socials">
-        <a href="https://instagram.com/yourprofile" target="_blank"><img src="instagram.svg" alt="Instagram"></a>
-        <a href="https://vk.com/yourprofile" target="_blank"><img src="vk.svg" alt="VK"></a>
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#E1306C"/><rect x="7" y="7" width="10" height="10" rx="3" fill="#fff"/><circle cx="17" cy="7" r="1.2" fill="#fff"/></svg>
+        </a>
+        <a href="https://vk.com/yourprofile" target="_blank" aria-label="VK">
+          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#4C75A3"/><path d="M16 13.5c.4.4.8.8 1.2 1.3.2.2.4.4.6.7.3.3.2.6-.2.7h-2.1c-.4 0-.8-.2-1.1-.5-.5-.5-.9-1.1-1.4-1.6-.2-.2-.4-.5-.6-.7-.3-.3-.5-.4-.9 0-.2.3-.4.6-.6.9-.3.5-.2.7.3.7.3 0 .6 0 .9 0 .2 0 .3 0 .5 0 .4 0 .6.2.7.6 0 .2.1.4 0 .6 0 .4-.2.6-.7.6-.8.1-1.7 0-2.5 0-1.7 0-3.3 0-5 0-.4 0-.7-.2-.7-.6 0-.2 0-.4 0-.6 0-.4.3-.5.7-.6.3 0 .5 0 .8 0 .2 0 .4 0 .6 0 .5 0 .7-.1.3-.7-.2-.4-.5-.8-.8-1.2C6.6 12 5.6 10.5 4.6 9c-.2-.2-.3-.4-.4-.7-.2-.3-.1-.5.3-.5.3 0 .5 0 .8 0 .4 0 .6.2.8.5.6.9 1.2 1.8 1.8 2.7.2.3.3.5.5.8.1.1.2.2.2.3.1.1.2.1.3.1.1 0 .1-.1.1-.3 0-.3 0-.6 0-.9 0-.3-.1-.5-.3-.7-.3-.4-.7-.7-1-.1-.1-.1 0-.3.2-.5.2-.2.4-.2.6 0 .2.2.4.4.6.6 1 1.2 2.1 2.3 3.2 3.4.2.2.4.3.7 0 .4-.5.9-1 1.3-1.5.3-.3.2-.5-.1-.6-.2-.1-.4-.1-.5-.2-.4-.1-.5-.3-.2-.7.4-.5.7-1.1 1-1.6.2-.3.4-.3.7-.1.1.1.2.3.3.4.7.9 1.4 1.8 2.2 2.6.2.2.4.4.5.6.2.3.3.5.1.8-.4.4-.8.9-1.1 1.3-.2.3-.2.5 0 .7z" fill="#fff"/></svg>
+        </a>
       </div>
-      <p>© 2025 Александр и Екатерина. С любовью для вас.</p>
+      <p>© 2025 Александр и Екатерина</p>
     </div>
   </footer>
 
-  <!-- JS LIBS -->
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
