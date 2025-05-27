@@ -6,6 +6,8 @@
   <title>Свадьба Александра и Екатерины | 19.07.2025</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.ico">
+  <!-- Swiper JS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
   <video class="background-video" autoplay loop muted playsinline>
@@ -25,7 +27,22 @@
         Мы будем счастливы разделить с вами этот особенный день.<br>
         Ждём вас на нашем празднике любви!
       </p>
-      <a href="#details" class="btn">Подробнее</a>
+      <a href="#details" class="btn scroll-link">Подробнее</a>
+    </section>
+    <section class="gallery fade-in" id="gallery">
+      <h2>Наша история</h2>
+      <!-- Swiper Slider -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="gallery1.jpg" alt="Слайд 1"></div>
+          <div class="swiper-slide"><img src="gallery2.jpg" alt="Слайд 2"></div>
+          <div class="swiper-slide"><img src="gallery3.jpg" alt="Слайд 3"></div>
+          <!-- Добавь ещё фото для большего эффекта -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
     </section>
     <section class="details fade-up" id="details">
       <h2>Детали события</h2>
@@ -40,7 +57,7 @@
         <a class="share-btn tg" href="https://t.me/share/url?url=https://your-wedding.site&text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025!" target="_blank">Telegram</a>
         <a class="share-btn wa" href="https://wa.me/?text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025! https://your-wedding.site" target="_blank">WhatsApp</a>
       </div>
-      <a href="#rsvp" class="btn-outline">Подтвердить участие</a>
+      <a href="#rsvp" class="btn-outline scroll-link">Подтвердить участие</a>
     </section>
     <section class="program fade-up" id="program">
       <h2>Программа дня</h2>
@@ -55,7 +72,7 @@
     <section class="rsvp fade-in" id="rsvp">
       <h2>Подтвердить участие</h2>
       <form id="rsvpForm">
-        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
         <input type="email" name="email" placeholder="Email" required>
         <select name="guests">
           <option value="1">Я приду один/одна</option>
@@ -63,7 +80,7 @@
           <option value="3">Я приду с семьей</option>
         </select>
         <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
-        <button type="submit" class="btn">Я буду!</button>
+        <button type="submit" class="btn animated-btn">Я буду!</button>
       </form>
       <div class="social-rsvp">
         <p>Или RSVP через мессенджер:</p>
@@ -84,6 +101,7 @@
   <footer>
     <p>С любовью, Александр & Екатерина &copy; 2025</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
   <!-- Yandex.Maps API -->
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
