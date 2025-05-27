@@ -41,7 +41,7 @@ if (rsvpForm && thanksBlock) {
       telegram: rsvpForm.telegram.value.trim(),
       whatsapp: rsvpForm.whatsapp.value.trim()
     };
-    fetch("https://script.google.com/macros/s/AKfycby1Q04EL41Ew4bWDqtG_ajJ2hc4shlri-vQThV33vcb8LLWrWTox0lhxzTEGmkrzZAs/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzSZ2gojbYhLa_OfrfgqdL7InKyrCu1ssGu5KC_Xyd4RmlzbsSCqUnF7_aQsBV6MguT/exec", {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
