@@ -32,22 +32,47 @@
   <main>
     <div class="blocks-grid">
       <section class="glass block" id="hero-block">
+        <div class="falling-decor"></div>
         <h1>Роман <span>&</span> Виктория</h1>
         <p class="hero-date">19 июля 2025 &mdash; Москва</p>
-        <div class="countdown" id="timer"></div>
+        <div class="countdown-wrap">
+          <div class="countdown" id="timer"></div>
+        </div>
         <a href="#celebrate" class="btn main-btn">Я буду с вами!</a>
       </section>
       <section class="glass block" id="timeline">
+        <div class="falling-decor"></div>
         <h2>Программа дня</h2>
         <ul class="timeline">
-          <li><span>14:00</span>🏃 Сбор гостей, welcome-drink🍷</li>
-          <li><span>15:00</span> 🎉Торжественная церемония🎉</li>
-          <li><span>16:00</span> 🍔Праздничный ужин🍕</li>
-          <li><span>17:00</span> 💃Танцы и веселье🕺</li>
-          <li><span>22:00</span> 🎇Завершение вечера🎇</li>
+          <li>
+            <span class="timeline-time">14:00</span>
+            <span class="timeline-emoji">🏃</span>
+            <span class="timeline-desc">Сбор гостей, welcome-drink <span style="font-size:1.09em;">🍷</span></span>
+          </li>
+          <li>
+            <span class="timeline-time">15:00</span>
+            <span class="timeline-emoji">🎉</span>
+            <span class="timeline-desc">Торжественная церемония</span>
+          </li>
+          <li>
+            <span class="timeline-time">16:00</span>
+            <span class="timeline-emoji">🍔</span>
+            <span class="timeline-desc">Праздничный ужин <span style="font-size:1.09em;">🍕</span></span>
+          </li>
+          <li>
+            <span class="timeline-time">17:00</span>
+            <span class="timeline-emoji">💃</span>
+            <span class="timeline-desc">Танцы и веселье <span style="font-size:1.09em;">🕺</span></span>
+          </li>
+          <li>
+            <span class="timeline-time">22:00</span>
+            <span class="timeline-emoji">🎇</span>
+            <span class="timeline-desc">Завершение вечера</span>
+          </li>
         </ul>
       </section>
       <section class="glass block" id="celebrate">
+        <div class="falling-decor"></div>
         <h2>Быть с нами — лучшая радость!</h2>
         <form id="rsvpForm" autocomplete="off">
           <div class="form-row">
@@ -83,6 +108,7 @@
         </div>
       </section>
       <section class="glass block" id="gifts">
+        <div class="falling-decor"></div>
         <h2>Подарки и дресс-код</h2>
         <div class="gifts-block">
           <p class="gift-text">
@@ -107,6 +133,7 @@
         </div>
       </section>
       <section class="glass block" id="location">
+        <div class="falling-decor"></div>
         <h2>Место проведения</h2>
         <div class="location-info">
           <p>
@@ -127,13 +154,13 @@
     </div>
   </footer>
   <script>
-    // Таймер до 19.07.2025
+    // Таймер с оформлением
     function updateTimer() {
       const eventDate = new Date("2025-07-19T14:00:00+03:00");
       const now = new Date();
       const diff = eventDate - now;
       if (diff <= 0) {
-        document.getElementById('timer').innerHTML = "Скоро увидимся!";
+        document.getElementById('timer').innerHTML = "<div class='count-el'><span class='count-num'>0</span><span class='count-label'>дней</span></div>";
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -141,10 +168,10 @@
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
       document.getElementById('timer').innerHTML = `
-        <span>${days}</span> дней
-        <span>${hours.toString().padStart(2, '0')}</span> ч
-        <span>${minutes.toString().padStart(2, '0')}</span> м
-        <span>${seconds.toString().padStart(2, '0')}</span> с
+        <div class="count-el"><span class="count-num">${days}</span><span class="count-label">дней</span></div>
+        <div class="count-el"><span class="count-num">${hours.toString().padStart(2, '0')}</span><span class="count-label">ч</span></div>
+        <div class="count-el"><span class="count-num">${minutes.toString().padStart(2, '0')}</span><span class="count-label">м</span></div>
+        <div class="count-el"><span class="count-num">${seconds.toString().padStart(2, '0')}</span><span class="count-label">с</span></div>
       `;
     }
     setInterval(updateTimer, 1000);
@@ -174,6 +201,31 @@
         };
         calendarNo.onclick = function(){calendarModal.classList.add('hidden');};
       }
+
+      // --- Цветочки, листики, лепестки ---
+      // Эмодзи для сыпания (можно добавить свои)
+      const EMOJIS = ['🌸','🌿','🌺','🍃','🌼','🍂','🍁'];
+      function randomBetween(a,b){ return Math.random()*(b-a)+a; }
+      document.querySelectorAll('.falling-decor').forEach(container => {
+        function createLeaf() {
+          const el = document.createElement('span');
+          el.className = 'falling-emoji';
+          el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+          el.style.left = Math.round(randomBetween(2, 98)) + '%';
+          el.style.fontSize = randomBetween(1.2, 2.1) + 'em';
+          el.style.animationDuration = randomBetween(4.5,8.5) + 's';
+          el.style.opacity = randomBetween(0.65, 0.92);
+          el.style.transform = `rotate(${randomBetween(-30,30)}deg)`;
+          container.appendChild(el);
+          setTimeout(()=>el.remove(), 9000);
+        }
+        setInterval(() => {
+          if (container.closest('.glass')) {
+            if (getComputedStyle(container.closest('.glass')).display !== 'none')
+              createLeaf();
+          }
+        }, 1200);
+      });
     });
   </script>
 </body>
