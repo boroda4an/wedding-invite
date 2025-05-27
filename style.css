@@ -24,12 +24,14 @@ html, body {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 .bg-video {
   width: 100vw; height: 100vh;
   object-fit: cover;
   position: absolute; left: 0; top: 0;
-  filter: brightness(0.55) blur(0.7px) saturate(1.1);
+  filter: brightness(0.48) blur(0.6px) saturate(1.08);
+  z-index: 0;
 }
 .bg-overlay {
   position: absolute; inset: 0;
@@ -106,7 +108,7 @@ nav a:hover, nav a:focus {
 main { z-index: 2; position: relative; }
 
 .hero {
-  min-height: 82vh;
+  min-height: 68vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   position: relative; z-index: 2; text-align: center;
   margin-top: 2vw;
@@ -207,47 +209,13 @@ main { z-index: 2; position: relative; }
 
 h2 {
   font-family: 'Great Vibes', 'Parisienne', cursive;
-  font-size: 2.3rem;
+  font-size: 2.15rem;
   text-align: center;
   color: var(--accent);
   margin-top: 0; margin-bottom: 1.6rem;
   text-shadow: 0 2px 18px #f7659744;
   letter-spacing: 1.5px;
   font-weight: 700;
-}
-
-#story .story-flex {
-  display: flex; align-items: flex-start; gap: 2.5rem; margin-top: 1.5rem;
-}
-.story-img {
-  width: 220px; border-radius: 1.2em; box-shadow: 0 2px 16px #f7659733;
-  transition: transform .8s cubic-bezier(.75,-0.2,.3,1.1);
-}
-.story-img:hover { transform: scale(1.04) rotate(-2deg);}
-#story p { font-size: 1.15rem; line-height: 1.7; color: var(--text);}
-@media (max-width: 800px) {
-  #story .story-flex { flex-direction: column; align-items: center; gap: 1rem; }
-  .story-img { width: 90vw; max-width: 330px; }
-}
-
-#gallery .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
-  gap: 1.2rem;
-  margin-top: 2.2rem;
-}
-.gallery-img {
-  width: 100%; height: 150px; object-fit: cover;
-  border-radius: 1em;
-  box-shadow: 0 2px 15px #f7659744;
-  transition: transform .33s cubic-bezier(.63,-0.15,.36,1.25), box-shadow .22s;
-  cursor: pointer;
-  opacity: 0.93;
-}
-.gallery-img:hover { transform: scale(1.08) rotate(-1.5deg); box-shadow: 0 6px 40px #ffb6b6bb; opacity: 1;}
-@media (max-width: 600px) {
-  #gallery .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-img { height: 90px; }
 }
 
 #timeline .timeline {
@@ -294,6 +262,7 @@ h2 {
   width: 100%;
   font-family: 'Inter', Arial, sans-serif;
 }
+#rsvp textarea { resize: vertical; min-height: 44px; }
 #rsvp input:focus, #rsvp textarea:focus, #rsvp select:focus {
   border-color: var(--accent); box-shadow: 0 2px 12px #f7659733;
 }
