@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Свадьба Александра и Екатерины | 19.07.2025</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Свадьба Романа и Виктории | 19.07.2025</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="bg-video-wrap">
-   <video class="bg-video" autoplay loop muted playsinline>
-  <source src="wedding-bg.mp4" type="video/mp4">
-</video>
-    <div class="bg-overlay"></div>
-  </div>
-
+  <div class="bg-gradient"></div>
   <header>
     <div class="container">
-      <div class="logo">Alex & Kate</div>
+      <div class="logo">Роман & Виктория</div>
       <nav>
         <a href="#story">История</a>
         <a href="#gallery">Галерея</a>
@@ -27,26 +21,22 @@
       </nav>
     </div>
   </header>
-
   <main>
     <section class="hero glass">
-      <h1>Александр <span>&</span> Екатерина</h1>
+      <h1>Роман <span>&</span> Виктория</h1>
       <p class="hero-date">19 июля 2025 &mdash; Москва</p>
       <div class="countdown" id="timer"></div>
       <a href="#rsvp" class="btn main-btn">Подтвердить участие</a>
     </section>
-
     <section class="glass" id="story">
       <h2>Наша история</h2>
       <div class="story-flex">
         <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Love Story 1" class="story-img">
         <div>
-          <p>Летом 2018 года наши пути пересеклись на морском побережье. С тех пор мы вместе открываем мир, мечтаем и строим планы.</p>
-          <p>19 июля 2025 мы хотим разделить с вами начало новой главы нашей истории!</p>
+          <p>Наша история началась с улыбки. Вместе мы учились мечтать, поддерживать друг друга и верить в чудеса. 19 июля 2025 мы хотим разделить с вами самое главное событие нашей жизни!</p>
         </div>
       </div>
     </section>
-
     <section class="glass" id="gallery">
       <h2>Фото-галерея</h2>
       <div class="gallery-grid">
@@ -57,7 +47,6 @@
         <img src="https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=600&q=80" alt="Фото 5" class="gallery-img">
       </div>
     </section>
-
     <section class="glass" id="timeline">
       <h2>Программа дня</h2>
       <ul class="timeline">
@@ -68,23 +57,33 @@
         <li><span>23:00</span> Завершение вечера</li>
       </ul>
     </section>
-
     <section class="glass" id="rsvp">
       <h2>RSVP</h2>
       <form id="rsvpForm">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <select name="guests">
-          <option value="1">Я приду один/одна</option>
-          <option value="2">Я приду с парой</option>
-          <option value="3">Я приду с семьей</option>
-        </select>
-        <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
-        <button type="submit" class="btn main-btn">Подтвердить</button>
+        <div class="form-row">
+          <input type="text" name="firstname" placeholder="Имя" required>
+          <input type="text" name="lastname" placeholder="Фамилия" required>
+        </div>
+        <div class="form-row">
+          <label>Как удобнее связаться?</label>
+          <label><input type="radio" name="contactType" value="email" checked> Email</label>
+          <label><input type="radio" name="contactType" value="telegram"> Telegram</label>
+          <label><input type="radio" name="contactType" value="whatsapp"> WhatsApp</label>
+        </div>
+        <div class="form-row contact-field email-field">
+          <input type="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-row contact-field tg-field" style="display:none;">
+          <input type="text" name="telegram" placeholder="@username">
+        </div>
+        <div class="form-row contact-field wa-field" style="display:none;">
+          <input type="text" name="whatsapp" placeholder="Телефон в WhatsApp">
+        </div>
+        <button type="submit" class="btn main-btn">Подтвердить участие</button>
       </form>
-      <p class="thanks hidden">Спасибо за ваш ответ — до встречи на свадьбе!</p>
+      <p class="thanks hidden">Спасибо за ваш ответ! До встречи на свадьбе 🙌</p>
+      <p class="note">Все ответы автоматически сохраняются в таблицу организаторов</p>
     </section>
-
     <section class="glass" id="map">
       <h2>Локация</h2>
       <div class="map-embed">
@@ -93,18 +92,17 @@
       <a href="https://yandex.ru/maps/?text=Ресторан Летний сад Москва" target="_blank" class="btn outline-btn">Открыть в Яндекс.Картах</a>
     </section>
   </main>
-
   <footer>
     <div class="container">
       <div class="footer-socials">
         <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
-          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#E1306C"/><rect x="7" y="7" width="10" height="10" rx="3" fill="#fff"/><circle cx="17" cy="7" r="1.2" fill="#fff"/></svg>
+          <svg width="28" height="28"><circle cx="14" cy="14" r="13" fill="#BAA6FF"/><rect x="8" y="8" width="12" height="12" rx="5" fill="#fff"/><circle cx="19" cy="9" r="1.5" fill="#fff"/></svg>
         </a>
         <a href="https://vk.com/" target="_blank" aria-label="VK">
-          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#4C75A3"/><path d="M16 13.5c.4.4.8.8 1.2 1.3.2.2.4.4.6.7.3.3.2.6-.2.7h-2.1c-.4 0-.8-.2-1.1-.5-.5-.5-.9-1.1-1.4-1.6-.2-.2-.4-.5-.6-.7-.3-.3-.5-.4-.9 0-.2.3-.4.6-.6.9-.3.5-.2.7.3.7.3 0 .6 0 .9 0 .2 0 .3 0 .5 0 .4 0 .6.2.7.6 0 .2.1.4 0 .6 0 .4-.2.6-.7.6-.8.1-1.7 0-2.5 0-1.7 0-3.3 0-5 0-.4 0-.7-.2-.7-.6 0-.2 0-.4 0-.6 0-.4.3-.5.7-.6.3 0 .5 0 .8 0 .2 0 .4 0 .6 0 .5 0 .7-.1.3-.7-.2-.4-.5-.8-.8-1.2C6.6 12 5.6 10.5 4.6 9c-.2-.2-.3-.4-.4-.7-.2-.3-.1-.5.3-.5.3 0 .5 0 .8 0 .4 0 .6.2.8.5.6.9 1.2 1.8 1.8 2.7.2.3.3.5.5.8.1.1.2.2.2.3.1.1.2.1.3.1.1 0 .1-.1.1-.3 0-.3 0-.6 0-.9 0-.3-.1-.5-.3-.7-.3-.4-.7-.7-1-.1-.1-.1 0-.3.2-.5.2-.2.4-.2.6 0 .2.2.4.4.6.6 1 1.2 2.1 2.3 3.2 3.4.2.2.4.3.7 0 .4-.5.9-1 1.3-1.5.3-.3.2-.5-.1-.6-.2-.1-.4-.1-.5-.2-.4-.1-.5-.3-.2-.7.4-.5.7-1.1 1-1.6.2-.3.4-.3.7-.1.1.1.2.3.3.4.7.9 1.4 1.8 2.2 2.6.2.2.4.4.5.6.2.3.3.5.1.8-.4.4-.8.9-1.1 1.3-.2.3-.2.5 0 .7z" fill="#fff"/></svg>
+          <svg width="28" height="28"><circle cx="14" cy="14" r="13" fill="#FFD700"/><path d="M17 15.5c.4.4.8.8 1.2 1.3.2.2.4.4.6.7.3.3.2.6-.2.7h-2.1c-.4 0-.8-.2-1.1-.5-.5-.5-.9-1.1-1.4-1.6-.2-.2-.4-.5-.6-.7-.3-.3-.5-.4-.9 0-.2.3-.4.6-.6.9-.3.5-.2.7.3.7.3 0 .6 0 .9 0 .2 0 .3 0 .5 0 .4 0 .6.2.7.6 0 .2.1.4 0 .6 0 .4-.2.6-.7.6-.8.1-1.7 0-2.5 0-1.7 0-3.3 0-5 0-.4 0-.7-.2-.7-.6 0-.2 0-.4 0-.6 0-.4.3-.5.7-.6.3 0 .5 0 .8 0 .2 0 .4 0 .6 0 .5 0 .7-.1.3-.7-.2-.4-.5-.8-.8-1.2C7.6 14 6.6 12.5 5.6 11c-.2-.2-.3-.4-.4-.7-.2-.3-.1-.5.3-.5.3 0 .5 0 .8 0 .4 0 .6.2.8.5.6.9 1.2 1.8 1.8 2.7.2.3.3.5.5.8.1.1.2.2.2.3.1.1.2.1.3.1.1 0 .1-.1.1-.3 0-.3 0-.6 0-.9 0-.3-.1-.5-.3-.7-.3-.4-.7-.7-1-.1-.1-.1 0-.3.2-.5.2-.2.4-.2.6 0 .2.2.4.4.6.6 1 1.2 2.1 2.3 3.2 3.4.2.2.4.3.7 0 .4-.5.9-1 1.3-1.5.3-.3.2-.5-.1-.6-.2-.1-.4-.1-.5-.2-.4-.1-.5-.3-.2-.7.4-.5.7-1.1 1-1.6.2-.3.4-.3.7-.1.1.1.2.3.3.4.7.9 1.4 1.8 2.2 2.6.2.2.4.4.5.6.2.3.3.5.1.8-.4.4-.8.9-1.1 1.3-.2.3-.2.5 0 .7z" fill="#fff"/></svg>
         </a>
       </div>
-      <p>© 2025 Александр и Екатерина</p>
+      <p>© 2025 Роман и Виктория</p>
     </div>
   </footer>
   <script src="script.js"></script>
