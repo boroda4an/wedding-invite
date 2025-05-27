@@ -257,6 +257,8 @@ main { z-index: 2; position: relative; }
 
 .glass {
   background: var(--glass-bg), var(--glass-bg-img) repeat;
+  /* Явный светло-зелёный фон для видимости блока */
+  background-color: #e6f8d5fa;
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   backdrop-filter: blur(var(--glass-blur));
@@ -267,8 +269,8 @@ main { z-index: 2; position: relative; }
   min-width: 280px;
   position: relative;
   z-index: 2;
-  opacity: 0;
-  transform: translateY(60px) scale(0.97);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 0.8s cubic-bezier(.43,.2,.3,1.1),
     transform 0.8s cubic-bezier(.43,.2,.3,1.1),
@@ -278,12 +280,9 @@ main { z-index: 2; position: relative; }
   font-family: var(--main-font);
   color: var(--text-dark);
 }
-.glass.visible {
-  opacity: 1;
-  transform: none;
-}
 .glass:hover, .glass:focus-within {
   background: linear-gradient(135deg, #f9fbe3ee 0%, #e6f8d5cc 90%);
+  background-color: #e6f8d5;
   box-shadow: var(--shadow-glow);
   filter: brightness(1.06) saturate(1.09);
 }
