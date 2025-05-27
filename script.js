@@ -29,7 +29,8 @@ window.addEventListener('DOMContentLoaded', fadeInOnScroll);
 
 // RSVP: отправка формы (Google Таблица через Apps Script)
 const rsvpForm = document.getElementById('rsvpForm');
-if (rsvpForm) {
+const thanksBlock = document.getElementById('thanks-message');
+if (rsvpForm && thanksBlock) {
   rsvpForm.onsubmit = function(e) {
     e.preventDefault();
     const data = {
@@ -46,8 +47,9 @@ if (rsvpForm) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
-    document.querySelector('#celebrate .thanks').classList.remove('hidden');
-    setTimeout(() => document.querySelector('#celebrate .thanks').classList.add('hidden'), 5000);
+    // Анимация появления блока "Спасибо"
+    thanksBlock.classList.add('visible');
+    setTimeout(() => thanksBlock.classList.remove('visible'), 4000);
     rsvpForm.reset();
   };
-}
+} 
