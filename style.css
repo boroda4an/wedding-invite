@@ -274,7 +274,55 @@ h2 {
   border-color: var(--accent); box-shadow: 0 2px 12px #ff6a8d33;
 }
 #celebrate button { margin-top: 0.8rem; }
-#celebrate .thanks { color: var(--accent-light); font-size: 1.15rem; margin-top: 1.2rem; }
+#celebrate .thanks {
+  position: relative;
+  background: rgba(255,255,255,0.15);
+  border-radius: 1.7em;
+  padding: 1.4em 1.2em 1.2em 1.2em;
+  margin: 2em auto 1em auto;
+  font-size: 1.26em;
+  color: var(--accent-light, #ff6a8d);
+  box-shadow: 0 4px 32px #ff6a8d33;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  pointer-events: none;
+  transition: opacity .6s cubic-bezier(.4,.68,.6,1.15), transform .6s cubic-bezier(.4,.68,.6,1.15);
+  z-index: 10;
+  font-family: var(--main-font, 'Cormorant Garamond', serif);
+  display: block;
+}
+#celebrate .thanks.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1.06);
+  pointer-events: auto;
+  animation: thanks-pop 1.3s .25s cubic-bezier(.5,1.6,.55,.92);
+}
+@keyframes thanks-pop {
+  0%   { box-shadow: 0 4px 32px #ff6a8d33; }
+  40%  { box-shadow: 0 4px 60px #ff6a8dcc; }
+  100% { box-shadow: 0 4px 32px #ff6a8d33; }
+}
+.thanks-heart {
+  display: inline-block;
+  font-size: 2em;
+  margin-bottom: .05em;
+  margin-top: -.3em;
+  vertical-align: middle;
+  animation: heart-beat 1.2s infinite cubic-bezier(.8,.2,.2,1.2), thanks-heart-fadein .6s;
+  filter: drop-shadow(0 0 12px #ff285180);
+}
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1);}
+  10% { transform: scale(1.25);}
+  20% { transform: scale(1);}
+  30% { transform: scale(1.18);}
+  40%,60% { transform: scale(1);}
+}
+@keyframes thanks-heart-fadein {
+  from { opacity: 0; transform: scale(1.25);}
+  to   { opacity: 1; transform: scale(1);}
+}
 #celebrate .thanks.hidden { display: none; }
 #celebrate .note {font-size:0.96em;color:#ff6a8dca;margin-top:1.1em; text-align:center;}
 
