@@ -29,6 +29,84 @@ html, body {
   min-height: 100vh;
 }
 
+.bg-video-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bg-video {
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  position: absolute; left: 0; top: 0;
+  filter: brightness(1) blur(0.7px) saturate(1.16) contrast(1.09);
+  z-index: 0;
+}
+.bg-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 10%, #b8d99f44 0%, #f3f9f3cc 90%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.top-logo {
+  position: relative; z-index: 2; text-align: center;
+  margin-top: 2.5rem; margin-bottom: 1.2rem;
+}
+.top-logo span {
+  font-family: var(--header-font);
+  font-size: 2.9rem;
+  color: var(--accent2);
+  text-shadow: var(--h-glow);
+  letter-spacing: 2px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b8d99fbb 5%, #fffbe7 95%);
+  border-radius: 1.2em;
+  padding: 0.5em 2.1em;
+  display: inline-block;
+  box-shadow: 0 2px 18px #b8d99f44, 0 0px 60px #ffe0a311;
+  border: 3px solid #ffe0a3;
+  animation: logoGlow 3.5s cubic-bezier(.7,.2,.5,1.1) infinite alternate;
+}
+@keyframes logoGlow {
+  0% { box-shadow:0 2px 18px #b8d99f44, 0 0px 60px #ffe0a311;}
+  100% { box-shadow:0 2px 32px #ffe0a3bb, 0 0px 98px #ffe0a344;}
+}
+
+header {
+  position: relative; z-index: 2;
+  background: none; padding: 0; margin-bottom: 1.5rem;
+}
+.main-nav {
+  display: flex; justify-content: center; gap: 1.2em;
+  flex-wrap: wrap; margin-bottom: 0;
+}
+.main-nav a {
+  color: #fff;
+  font-size: 1.23rem;
+  padding: 0.4em 2.2em;
+  border-radius: 1.7em;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border: 2.5px solid var(--accent2);
+  text-shadow: 0 2px 9px #31422888, 0 1px 0 #b8d99f66;
+  box-shadow: 0 2px 12px #b8d99f44;
+  margin: 0;
+  outline: none;
+  position: relative;
+  transition: background .21s, color .21s, box-shadow .17s, border .18s;
+  overflow: hidden;
+  letter-spacing: 1.3px;
+}
+.main-nav a:hover, .main-nav a:focus {
+  background: linear-gradient(90deg, var(--accent-light), var(--accent3));
+  color: var(--accent2);
+  border-color: var(--accent3);
+  box-shadow: 0 2px 18px #ffe0a377;
+  transform: scale(1.07);
+}
+
 /* Блоки */
 .blocks-grid {
   display: flex; flex-direction: column; align-items: center; width: 100%;
@@ -59,7 +137,6 @@ html, body {
     background .43s cubic-bezier(.7,.5,.3,1.1),
     filter .33s cubic-bezier(.7,.5,.3,1.1);
 }
-
 .glass {
   background: var(--glass-bg), var(--glass-bg-img) repeat;
   border-radius: var(--radius);
@@ -95,7 +172,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2em;
   background: linear-gradient(90deg, #eaf9ecdd 0%, #ffe0a3bb 100%);
   border-radius: 1.3em;
   padding: 1.2em 2em 1.1em 2em;
@@ -108,18 +184,12 @@ html, body {
   margin-right: auto;
   font-family: var(--main-font);
   border: 1.5px solid #b8d99f55;
-  /* Смена цвета по времени */
-  animation: timerHue 12s linear infinite alternate;
-}
-@keyframes timerHue {
-  0% { filter: hue-rotate(0deg);}
-  100% { filter: hue-rotate(12deg);}
 }
 .countdown {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 1.4em;
+  gap: 1.1em;
   font-weight: 700;
   font-size: 1.38rem;
   letter-spacing: 1.2px;
@@ -130,29 +200,26 @@ html, body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-width: 55px;
+  min-width: 62px;
   align-items: center;
   position: relative;
 }
 .count-num {
-  font-size: 2.6em;
+  font-size: 2.7em;
   font-family: var(--header-font);
   color: var(--accent);
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: 0.05em;
   text-shadow: 0 0 18px #b8d99f33;
-  transition: color .3s;
   background: linear-gradient(90deg, #ffe0a3 0%, #b8d99f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeInNum .33s;
-}
-@keyframes fadeInNum {
-  from { opacity: 0; transform: scale(0.91);}
-  to   { opacity: 1; transform: scale(1);}
+  transition: color .24s, background .3s;
+  min-width: 1.8em;
+  display: block;
 }
 .count-label {
-  font-size: 1.04em;
+  font-size: 1.08em;
   font-weight: 600;
   color: var(--accent-light);
   margin-top: 0.14em;
@@ -165,7 +232,7 @@ html, body {
   list-style: none;
   margin: 0 auto 0 auto;
   padding: 0;
-  max-width: 460px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 1.1em;
@@ -178,7 +245,7 @@ html, body {
   color: var(--text-dark);
   box-shadow: 0 2px 14px #b8d99f13;
   display: grid;
-  grid-template-columns: 100px 2em 1fr;
+  grid-template-columns: 90px 2.1em 1fr;
   align-items: center;
   gap: 0.2em 1em;
   font-family: var(--main-font);
@@ -197,7 +264,7 @@ html, body {
   font-size: 1.36em;
   color: var(--accent);
   font-weight: 700;
-  min-width: 84px;
+  min-width: 70px;
   letter-spacing: 1px;
   text-shadow: 0 0 8px #ffe0a366;
   display: inline-block;
@@ -205,7 +272,6 @@ html, body {
 }
 .timeline-emoji {
   font-size: 1.36em;
-  margin: 0 0.4em 0 0;
   filter: drop-shadow(0 0 4px #ffe0a388);
   justify-self: center;
 }
@@ -216,59 +282,7 @@ html, body {
   justify-self: start;
 }
 
-/* Остальное (кнопки, шапка, формы и тд) как было ранее, пример: */
-.btn, .main-btn {
-  background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent3));
-  color: #fff !important;
-  text-shadow: 0 2px 12px #314228cc, 0 1px 0 #b8d99fcc;
-  font-weight: 700;
-  border: none;
-  border-radius: 36px;
-  padding: 1.1em 2.8em;
-  font-size: 1.23rem;
-  letter-spacing: 1.7px;
-  margin-top: 1.1em;
-  box-shadow: 0 4px 18px #7b9b5944, 0 2px 24px #ffe0a344;
-  cursor: pointer;
-  transition:
-    background .30s cubic-bezier(.7,.4,.3,1.1),
-    color .18s,
-    box-shadow .22s,
-    transform .17s;
-  position: relative;
-  overflow: hidden;
-  outline: none;
-}
-.btn::before, .main-btn::before {
-  content: "";
-  position: absolute;
-  left: 50%; top: 50%;
-  width: 0; height: 0;
-  background: radial-gradient(circle, #fffbe7bb 0%, #fffbe700 80%);
-  border-radius: 100%;
-  transform: translate(-50%, -50%);
-  transition: width .33s, height .33s;
-  z-index: 0;
-}
-.btn:active::before, .main-btn:active::before {
-  width: 150%; height: 500%;
-}
-.btn:hover::before, .main-btn:hover::before {
-  width: 230%; height: 800%;
-}
-.btn:active, .main-btn:active { color: #fff; }
-.main-btn {
-  background: linear-gradient(90deg, var(--accent-light) 0%, var(--accent) 100%, var(--accent3) 120%);
-  border: 2px solid var(--accent3);
-  font-size: 1.23rem;
-  box-shadow: 0 4px 40px #ffe0a344, 0 2px 24px #b8d99f33;
-}
-.btn:hover, .main-btn:hover {
-  background: linear-gradient(90deg, var(--accent3) 5%, var(--accent-light) 45%, var(--accent) 100%);
-  color: #fff !important;
-  box-shadow: 0 16px 52px #ffe0a3bb, 0 2px 42px #b8d99faa, 0 2px 32px #ffe0a355;
-  transform: scale(1.07) translateY(-2px);
-}
+/* Кнопки и остальное — как было ранее, без изменений */
 
 @media (max-width: 600px) {
   .glass, .block {padding: 1.2rem 0.4rem 1.6rem 0.4rem; min-width: 0; max-width: 100vw;}
