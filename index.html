@@ -5,105 +5,162 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Свадьба Александра и Екатерины | 19.07.2025</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
-  <!-- Swiper JS CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 </head>
 <body>
-  <video class="background-video" autoplay loop muted playsinline>
-    <source src="https://player.vimeo.com/external/224299466.hd.mp4?s=4ff9a9d8e531d1672e3b06f9af58b2b5a3e8e70a&profile_id=174" type="video/mp4">
-    Ваш браузер не поддерживает видео фон.
-  </video>
-  <div class="overlay"></div>
-  <main>
-    <section class="invitation fade-in">
-      <h1>Приглашаем на свадьбу</h1>
-      <p class="names">Александр & Екатерина</p>
-      <p class="date">19 июля 2025</p>
-      <div id="timer" class="timer"></div>
-      <hr>
-      <p class="invite-text">
-        Дорогие друзья и родные!<br>
-        Мы будем счастливы разделить с вами этот особенный день.<br>
-        Ждём вас на нашем празднике любви!
-      </p>
-      <a href="#details" class="btn scroll-link">Подробнее</a>
-    </section>
-    <section class="gallery fade-in" id="gallery">
-      <h2>Наша история</h2>
-      <!-- Swiper Slider -->
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="gallery1.jpg" alt="Слайд 1"></div>
-          <div class="swiper-slide"><img src="gallery2.jpg" alt="Слайд 2"></div>
-          <div class="swiper-slide"><img src="gallery3.jpg" alt="Слайд 3"></div>
-          <!-- Добавь ещё фото для большего эффекта -->
+
+  <div id="preloader"><span></span></div>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero" data-scroll-section>
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="https://player.vimeo.com/external/224299466.hd.mp4?s=4ff9a9d8e531d1672e3b06f9af58b2b5a3e8e70a&profile_id=174" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1><span>Свадьба</span><br>Александра и Екатерины</h1>
+      <p class="hero-date">19 июля 2025, Москва</p>
+      <div class="countdown" id="timer"></div>
+      <a href="#rsvp" class="btn btn-main scroll-link">Подтвердить участие</a>
+    </div>
+    <svg class="hero-bottom-svg" viewBox="0 0 1440 180"><path fill="#fff" d="M0,160L60,144C120,128,240,96,360,80C480,64,600,64,720,90.7C840,117,960,171,1080,186.7C1200,203,1320,181,1380,170.7L1440,160V180H0Z"></path></svg>
+  </section>
+
+  <!-- LOVE STORY -->
+  <section class="lovestory" id="lovestory" data-scroll-section>
+    <div class="container">
+      <h2 data-scroll data-scroll-speed="1">Наша история любви</h2>
+      <div class="story-flex">
+        <div class="story-photo fade-in" data-scroll data-scroll-speed="2">
+          <img src="gallery1.jpg" alt="Love Story 1">
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="story-text fade-in" data-scroll data-scroll-speed="1.5">
+          <p>История началась летом 2018 года на берегу моря. Мы нашли друг друга среди миллионов, чтобы однажды сказать: “Да!”</p>
+        </div>
       </div>
-    </section>
-    <section class="details fade-up" id="details">
-      <h2>Детали события</h2>
-      <ul>
-        <li><strong>Дата:</strong> 19 июля 2025, 16:00</li>
-        <li><strong>Место:</strong> Ресторан "Летний сад", г. Москва</li>
-        <li><strong>Dress code:</strong> Лёгкие летние наряды, пастельные тона</li>
-      </ul>
-      <div id="map" class="map"></div>
-      <div class="share">
-        <p>Поделиться приглашением:</p>
-        <a class="share-btn tg" href="https://t.me/share/url?url=https://your-wedding.site&text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025!" target="_blank">Telegram</a>
-        <a class="share-btn wa" href="https://wa.me/?text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025! https://your-wedding.site" target="_blank">WhatsApp</a>
+      <div class="story-flex reverse">
+        <div class="story-text fade-in" data-scroll data-scroll-speed="1.5">
+          <p>Вместе мы путешествовали, мечтали и строили планы. И теперь ждём вас разделить с нами этот особенный день!</p>
+        </div>
+        <div class="story-photo fade-in" data-scroll data-scroll-speed="2">
+          <img src="gallery2.jpg" alt="Love Story 2">
+        </div>
       </div>
-      <a href="#rsvp" class="btn-outline scroll-link">Подтвердить участие</a>
-    </section>
-    <section class="program fade-up" id="program">
-      <h2>Программа дня</h2>
-      <ul class="timeline">
-        <li><span>16:00</span> Сбор гостей, welcome-drink</li>
-        <li><span>17:00</span> Церемония</li>
-        <li><span>18:00</span> Праздничный ужин</li>
-        <li><span>20:00</span> Танцы и развлечения</li>
-        <li><span>23:00</span> Завершение вечера</li>
-      </ul>
-    </section>
-    <section class="rsvp fade-in" id="rsvp">
-      <h2>Подтвердить участие</h2>
-      <form id="rsvpForm">
-        <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <select name="guests">
-          <option value="1">Я приду один/одна</option>
-          <option value="2">Я приду с парой</option>
-          <option value="3">Я приду с семьей</option>
-        </select>
-        <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
-        <button type="submit" class="btn animated-btn">Я буду!</button>
-      </form>
-      <div class="social-rsvp">
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery" data-scroll-section>
+    <div class="container">
+      <h2 data-scroll data-scroll-speed="1.2">Фото-галерея</h2>
+      <div class="gallery-grid">
+        <a href="gallery1.jpg" class="glightbox"><img src="gallery1.jpg" alt=""></a>
+        <a href="gallery2.jpg" class="glightbox"><img src="gallery2.jpg" alt=""></a>
+        <a href="gallery3.jpg" class="glightbox"><img src="gallery3.jpg" alt=""></a>
+        <a href="gallery4.jpg" class="glightbox"><img src="gallery4.jpg" alt=""></a>
+        <a href="gallery5.jpg" class="glightbox"><img src="gallery5.jpg" alt=""></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" id="program" data-scroll-section>
+    <div class="container">
+      <h2 data-scroll data-scroll-speed="1.1">Программа дня</h2>
+      <div class="timeline">
+        <div class="timeline-item fade-in" data-scroll>
+          <span class="timeline-time">16:00</span>
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">Сбор гостей, welcome-drink</div>
+        </div>
+        <div class="timeline-item fade-in" data-scroll>
+          <span class="timeline-time">17:00</span>
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">Торжественная церемония</div>
+        </div>
+        <div class="timeline-item fade-in" data-scroll>
+          <span class="timeline-time">18:00</span>
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">Праздничный ужин</div>
+        </div>
+        <div class="timeline-item fade-in" data-scroll>
+          <span class="timeline-time">20:00</span>
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">Танцы и развлечения</div>
+        </div>
+        <div class="timeline-item fade-in" data-scroll>
+          <span class="timeline-time">23:00</span>
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">Завершение вечера</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp-section" id="rsvp" data-scroll-section>
+    <div class="container">
+      <div class="rsvp-card fade-in" data-scroll>
+        <h2>RSVP</h2>
+        <p>Пожалуйста, подтвердите своё присутствие до <b>1 июля 2025</b></p>
+        <form id="rsvpForm">
+          <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <select name="guests">
+            <option value="1">Я приду один/одна</option>
+            <option value="2">Я приду с парой</option>
+            <option value="3">Я приду с семьей</option>
+          </select>
+          <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
+          <button type="submit" class="btn btn-main">Я буду!</button>
+        </form>
+        <p class="thanks hidden">Спасибо за ваш ответ! До встречи на свадьбе!</p>
+      </div>
+      <div class="rsvp-social">
         <p>Или RSVP через мессенджер:</p>
         <a class="rsvp-btn tg" href="https://t.me/yourusername" target="_blank">Telegram</a>
         <a class="rsvp-btn wa" href="https://wa.me/79990000000?text=Я%20буду%20на%20вашей%20свадьбе!" target="_blank">WhatsApp</a>
       </div>
-      <p class="thanks hidden">Спасибо за ваш ответ! До встречи на свадьбе!</p>
-    </section>
-    <section class="gifts fade-up" id="gifts">
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="gifts-section" id="gifts" data-scroll-section>
+    <div class="container fade-in" data-scroll>
       <h2>Пожелания по подаркам</h2>
-      <p>Лучший подарок — ваше присутствие!<br>Если хотите порадовать нас ещё, будем рады конвертам, путешествиям, сертификатам или памятным сувенирам.</p>
-      <div class="socials">
-        <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><img src="instagram.svg" alt="Instagram"></a>
-        <a href="https://vk.com/yourprofile" target="_blank" title="VK"><img src="vk.svg" alt="VK"></a>
+      <p>Ваше присутствие — лучший подарок!<br>Если хотите нас порадовать, будем рады конвертам, путешествиям, сертификатам или памятным сувенирам.</p>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section" id="map" data-scroll-section>
+    <div class="container fade-in" data-scroll>
+      <h2>Как добраться</h2>
+      <div class="map-embed">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6e4d1c2c9f5e6b9c2b927cfb70d2f8c2e9c77a2b9e6c915c3b6d5e9d0b5f4a1f1&amp;source=constructor" width="100%" height="320" frameborder="0"></iframe>
       </div>
-    </section>
-  </main>
+      <a href="https://yandex.ru/maps/?text=Ресторан Летний сад Москва" target="_blank" class="btn btn-outline">Открыть в Яндекс.Картах</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>С любовью, Александр & Екатерина &copy; 2025</p>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://instagram.com/yourprofile" target="_blank"><img src="instagram.svg" alt="Instagram"></a>
+        <a href="https://vk.com/yourprofile" target="_blank"><img src="vk.svg" alt="VK"></a>
+      </div>
+      <p>© 2025 Александр и Екатерина. С любовью для вас.</p>
+    </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- JS LIBS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="script.js"></script>
-  <!-- Yandex.Maps API -->
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </body>
 </html>
