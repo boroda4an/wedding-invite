@@ -1,17 +1,17 @@
 :root {
-  --main-bg: #eaf9ec;             /* нежно-зелёный */
-  --main-bg-dark: #f9eaf4;        /* светлый розово-белый */
-  --accent: #ff82ab;              /* ярко-розовый */
-  --accent-light: #e3b5ce;        /* нежно-розовый */
-  --accent2: #6e9075;             /* зелёный для текста/иконок */
-  --accent3: #fbeedc;             /* кремовый/светлый фон */
-  --glass-bg: rgba(255, 255, 255, 0.82);
+  --main-bg: #f8f9f6;            /* почти белый */
+  --main-bg-dark: #eaf9ec;       /* светло-фисташковый */
+  --accent: #7b9b59;             /* зелёный-фисташковый */
+  --accent-light: #b5cba1;       /* светло-фисташковый */
+  --accent2: #8c6e54;            /* коричневый для иконок/текста */
+  --accent3: #fffbe7;            /* нежно-жёлтый */
+  --glass-bg: rgba(255, 255, 255, 0.84);
   --glass-blur: 18px;
   --radius: 32px;
-  --shadow: 0 8px 36px rgba(255, 130, 171, 0.09);
-  --text: #4c5c53;                /* тёмно-зелёный */
-  --text-dark: #2d3a33;           /* ещё темнее для контраста */
-  --h-glow: 0 0 22px #ff82ab99, 0 2px 8px #e3b5ce55;
+  --shadow: 0 8px 36px rgba(139, 110, 84, 0.10);
+  --text: #574c37;               /* тёмно-коричневый */
+  --text-dark: #2d2a1f;          /* насыщенный коричневый */
+  --h-glow: 0 0 24px #b5cba199, 0 2px 8px #8c6e5444;
   --main-font: 'Cormorant Garamond', serif;
   --header-font: 'Great Vibes', 'Parisienne', cursive;
 }
@@ -36,12 +36,12 @@ html, body {
   width: 100vw; height: 100vh;
   object-fit: cover;
   position: absolute; left: 0; top: 0;
-  filter: brightness(0.7) blur(0.5px) saturate(1.04);
+  filter: brightness(0.72) blur(0.5px) saturate(1.08);
   z-index: 0;
 }
 .bg-overlay {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 10%, #ff82ab33 0%, #eaf9ec 95%);
+  background: radial-gradient(ellipse at 60% 10%, #b5cba133 0%, #f8f9f6 95%);
   z-index: 1;
   pointer-events: none;
 }
@@ -89,7 +89,7 @@ nav a {
   position: relative;
 }
 nav a:hover, nav a:focus {
-  background: var(--accent);
+  background: var(--accent-light);
   color: #fff;
   border-color: var(--accent);
 }
@@ -138,7 +138,7 @@ main { z-index: 2; position: relative; }
   margin-bottom: 1.2em;
   font-weight: 500;
   letter-spacing: 1px;
-  text-shadow: 0 1px 6px #e3b5ce66;
+  text-shadow: 0 1px 6px #b5cba166;
   font-family: var(--main-font);
 }
 .countdown {
@@ -146,7 +146,7 @@ main { z-index: 2; position: relative; }
   font-size: 1.13rem;
   font-weight: 600;
   margin-bottom: 2em;
-  text-shadow: 0 0 8px #ff82ab55;
+  text-shadow: 0 0 8px #b5cba155;
   letter-spacing: 1px;
   font-family: var(--main-font);
 }
@@ -159,7 +159,7 @@ main { z-index: 2; position: relative; }
   font-weight: 600;
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 2px 16px #ff82ab66;
+  box-shadow: 0 2px 16px #b5cba166;
   cursor: pointer;
   text-decoration: none;
   transition: background .24s, color .22s, transform .18s, box-shadow .22s;
@@ -173,10 +173,10 @@ main { z-index: 2; position: relative; }
 }
 .outline-btn {
   background: none;
-  color: var(--accent);
-  border: 2px solid var(--accent);
+  color: var(--accent2);
+  border: 2px solid var(--accent2);
 }
-.outline-btn:hover, .main-btn:hover { background: var(--accent-light); color: #2d3a33; box-shadow: 0 6px 18px #e3b5ce99; transform: scale(1.07);}
+.outline-btn:hover, .main-btn:hover { background: var(--accent-light); color: #fffbe7; box-shadow: 0 6px 18px #b5cba199; transform: scale(1.07);}
 .btn:active { transform: scale(0.97); }
 
 .glass {
@@ -219,7 +219,7 @@ h2 {
   text-align: center;
   color: var(--accent);
   margin-top: 0; margin-bottom: 1.6rem;
-  text-shadow: 0 2px 18px #e3b5ce33;
+  text-shadow: 0 2px 18px #b5cba133;
   letter-spacing: 1.5px;
   font-weight: 700;
 }
@@ -231,13 +231,13 @@ h2 {
   max-width: 420px;
 }
 #timeline .timeline li {
-  background: #ff82ab11;
+  background: #b5cba111;
   margin-bottom: 1.3rem;
   border-radius: 1em;
   padding: 1rem 1.1rem;
   font-size: 1.17rem;
   color: var(--text-dark);
-  box-shadow: 0 2px 12px #e3b5ce22;
+  box-shadow: 0 2px 12px #b5cba122;
   position: relative;
   display: flex; align-items: center;
   opacity: 0.93;
@@ -261,18 +261,18 @@ h2 {
 #celebrate .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 #celebrate input, #celebrate select, #celebrate textarea {
   border-radius: 1em;
-  border: 1.5px solid #e3b5ce44;
+  border: 1.5px solid #b5cba144;
   background: #fff;
   font-size: 1.07rem;
   padding: 0.7em 1em;
   transition: border .2s, box-shadow .2s;
   width: 100%;
   font-family: var(--main-font);
-  color: #2d3a33;
+  color: #2d2a1f;
 }
 #celebrate textarea { resize: vertical; min-height: 44px; }
 #celebrate input:focus, #celebrate textarea:focus, #celebrate select:focus {
-  border-color: var(--accent); box-shadow: 0 2px 12px #e3b5ce33;
+  border-color: var(--accent); box-shadow: 0 2px 12px #b5cba133;
 }
 #celebrate button { margin-top: 0.8rem; }
 #celebrate .thanks {
@@ -282,8 +282,8 @@ h2 {
   padding: 1.4em 1.2em 1.2em 1.2em;
   margin: 2em auto 1em auto;
   font-size: 1.26em;
-  color: var(--accent);
-  box-shadow: 0 4px 32px #e3b5ce33;
+  color: var(--accent2);
+  box-shadow: 0 4px 32px #b5cba133;
   text-align: center;
   opacity: 0;
   transform: translateY(40px) scale(0.97);
@@ -300,9 +300,9 @@ h2 {
   animation: thanks-pop 1.3s .25s cubic-bezier(.5,1.6,.55,.92);
 }
 @keyframes thanks-pop {
-  0%   { box-shadow: 0 4px 32px #e3b5ce33; }
-  40%  { box-shadow: 0 4px 60px #e3b5cecc; }
-  100% { box-shadow: 0 4px 32px #e3b5ce33; }
+  0%   { box-shadow: 0 4px 32px #b5cba133; }
+  40%  { box-shadow: 0 4px 60px #b5cba1cc; }
+  100% { box-shadow: 0 4px 32px #b5cba133; }
 }
 .thanks-heart {
   display: inline-block;
@@ -311,7 +311,7 @@ h2 {
   margin-top: -.3em;
   vertical-align: middle;
   animation: heart-beat 1.2s infinite cubic-bezier(.8,.2,.2,1.2), thanks-heart-fadein .6s;
-  filter: drop-shadow(0 0 12px #ff82ab80);
+  filter: drop-shadow(0 0 12px #8c6e5480);
 }
 @keyframes heart-beat {
   0%, 100% { transform: scale(1);}
@@ -325,7 +325,7 @@ h2 {
   to   { opacity: 1; transform: scale(1);}
 }
 #celebrate .thanks.hidden { display: none; }
-#celebrate .note {font-size:0.96em;color:#e3b5ceca;margin-top:1.1em; text-align:center;}
+#celebrate .note {font-size:0.96em;color:#8c6e54ca;margin-top:1.1em; text-align:center;}
 
 /* Подарки и дресс-код */
 #gifts .gifts-block {
@@ -339,7 +339,7 @@ h2 {
   vertical-align: middle;
   margin-bottom: .12em;
   color: var(--accent);
-  filter: drop-shadow(0 0 8px #e3b5ce);
+  filter: drop-shadow(0 0 8px #b5cba1);
 }
 .gift-main {
   color: var(--accent);
@@ -353,7 +353,7 @@ h2 {
 .gift-hr {
   margin: 1.6em auto 1.2em auto;
   border: none;
-  border-top: 2px dashed #e3b5ce;
+  border-top: 2px dashed #b5cba1;
   width: 60%;
   opacity: .38;
 }
@@ -403,13 +403,13 @@ h2 {
 footer { text-align: center; padding: 2rem 0 0.7rem 0; z-index: 2; position: relative; font-family: var(--main-font);}
 footer p { color: var(--accent2); font-size: 1.03em; letter-spacing: 1px; }
 
-::-webkit-scrollbar {width: 8px;background: #c8d6c1;}
-::-webkit-scrollbar-thumb {background: #e3b5ce33;border-radius:6px;}
+::-webkit-scrollbar {width: 8px;background: #eaf9ec;}
+::-webkit-scrollbar-thumb {background: #b5cba133;border-radius:6px;}
 
 /* === Модальное окно календаря === */
 .calendar-modal {
   position: fixed; inset: 0; z-index: 9999;
-  background: rgba(234,249,236,0.75);
+  background: rgba(248,249,246,0.85);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none; transition: opacity .3s;
 }
@@ -417,9 +417,9 @@ footer p { color: var(--accent2); font-size: 1.03em; letter-spacing: 1px; }
   opacity: 1; pointer-events: auto;
 }
 .calendar-modal-content {
-  background: #fff; color: #2d3a33;
+  background: #fffbe7; color: #2d2a1f;
   border-radius: 1.5em; padding: 2em 2.5em;
-  text-align: center; box-shadow: 0 8px 40px #e3b5ce44;
+  text-align: center; box-shadow: 0 8px 40px #b5cba144;
 }
 .calendar-modal .btn { margin: 0 0.6em; }
 
