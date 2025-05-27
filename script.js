@@ -46,8 +46,8 @@ if (rsvpForm) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
-    document.querySelector('#rsvp .thanks').classList.remove('hidden');
-    setTimeout(() => document.querySelector('#rsvp .thanks').classList.add('hidden'), 5000);
+    document.querySelector('#celebrate .thanks').classList.remove('hidden');
+    setTimeout(() => document.querySelector('#celebrate .thanks').classList.add('hidden'), 5000);
     rsvpForm.reset();
   };
 }
