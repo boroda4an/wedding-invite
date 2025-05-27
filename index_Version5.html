@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Свадьба Александра и Екатерины | 19.07.2025</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <video class="background-video" autoplay loop muted playsinline>
+    <source src="https://player.vimeo.com/external/224299466.hd.mp4?s=4ff9a9d8e531d1672e3b06f9af58b2b5a3e8e70a&profile_id=174" type="video/mp4">
+    Ваш браузер не поддерживает видео фон.
+  </video>
+  <div class="overlay"></div>
+  <main>
+    <section class="invitation fade-in">
+      <h1>Приглашаем на свадьбу</h1>
+      <p class="names">Александр & Екатерина</p>
+      <p class="date">19 июля 2025</p>
+      <div id="timer" class="timer"></div>
+      <hr>
+      <p class="invite-text">
+        Дорогие друзья и родные!<br>
+        Мы будем счастливы разделить с вами этот особенный день.<br>
+        Ждём вас на нашем празднике любви!
+      </p>
+      <a href="#details" class="btn">Подробнее</a>
+    </section>
+    <section class="details fade-up" id="details">
+      <h2>Детали события</h2>
+      <ul>
+        <li><strong>Дата:</strong> 19 июля 2025, 16:00</li>
+        <li><strong>Место:</strong> Ресторан "Летний сад", г. Москва</li>
+        <li><strong>Dress code:</strong> Лёгкие летние наряды, пастельные тона</li>
+      </ul>
+      <div id="map" class="map"></div>
+      <div class="share">
+        <p>Поделиться приглашением:</p>
+        <a class="share-btn tg" href="https://t.me/share/url?url=https://your-wedding.site&text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025!" target="_blank">Telegram</a>
+        <a class="share-btn wa" href="https://wa.me/?text=Приглашаем на свадьбу Александра и Екатерины 19.07.2025! https://your-wedding.site" target="_blank">WhatsApp</a>
+      </div>
+      <a href="#rsvp" class="btn-outline">Подтвердить участие</a>
+    </section>
+    <section class="program fade-up" id="program">
+      <h2>Программа дня</h2>
+      <ul class="timeline">
+        <li><span>16:00</span> Сбор гостей, welcome-drink</li>
+        <li><span>17:00</span> Церемония</li>
+        <li><span>18:00</span> Праздничный ужин</li>
+        <li><span>20:00</span> Танцы и развлечения</li>
+        <li><span>23:00</span> Завершение вечера</li>
+      </ul>
+    </section>
+    <section class="rsvp fade-in" id="rsvp">
+      <h2>Подтвердить участие</h2>
+      <form id="rsvpForm">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="guests">
+          <option value="1">Я приду один/одна</option>
+          <option value="2">Я приду с парой</option>
+          <option value="3">Я приду с семьей</option>
+        </select>
+        <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
+        <button type="submit" class="btn">Я буду!</button>
+      </form>
+      <div class="social-rsvp">
+        <p>Или RSVP через мессенджер:</p>
+        <a class="rsvp-btn tg" href="https://t.me/yourusername" target="_blank">Telegram</a>
+        <a class="rsvp-btn wa" href="https://wa.me/79990000000?text=Я%20буду%20на%20вашей%20свадьбе!" target="_blank">WhatsApp</a>
+      </div>
+      <p class="thanks hidden">Спасибо за ваш ответ! До встречи на свадьбе!</p>
+    </section>
+    <section class="gifts fade-up" id="gifts">
+      <h2>Пожелания по подаркам</h2>
+      <p>Лучший подарок — ваше присутствие!<br>Если хотите порадовать нас ещё, будем рады конвертам, путешествиям, сертификатам или памятным сувенирам.</p>
+      <div class="socials">
+        <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><img src="instagram.svg" alt="Instagram"></a>
+        <a href="https://vk.com/yourprofile" target="_blank" title="VK"><img src="vk.svg" alt="VK"></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>С любовью, Александр & Екатерина &copy; 2025</p>
+  </footer>
+  <script src="script.js"></script>
+  <!-- Yandex.Maps API -->
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</body>
+</html>
