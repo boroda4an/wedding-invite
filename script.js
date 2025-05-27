@@ -36,7 +36,7 @@ if (rsvpForm && thanksBlock) {
     const data = {
       firstname: rsvpForm.firstname.value.trim(),
       lastname: rsvpForm.lastname.value.trim(),
-      message: rsvpForm.message.value.trim(),
+      message: rsvpForm.elements.message.value.trim(),
       email: rsvpForm.email.value.trim(),
       telegram: rsvpForm.telegram.value.trim(),
       whatsapp: rsvpForm.whatsapp.value.trim()
