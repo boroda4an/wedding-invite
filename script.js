@@ -17,35 +17,28 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// RSVP: динамика показа полей
-const contactTypeRadios = document.querySelectorAll('input[name="contactType"]');
-function toggleContactFields() {
-  document.querySelector('.email-field').style.display = 'none';
-  document.querySelector('.tg-field').style.display = 'none';
-  document.querySelector('.wa-field').style.display = 'none';
-  const val = document.querySelector('input[name="contactType"]:checked').value;
-  if(val==='email') document.querySelector('.email-field').style.display = '';
-  if(val==='telegram') document.querySelector('.tg-field').style.display = '';
-  if(val==='whatsapp') document.querySelector('.wa-field').style.display = '';
+// Плавное появление секций при скролле
+function fadeInOnScroll() {
+  document.querySelectorAll('.fadein, .glass').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50) el.classList.add('visible');
+  });
 }
-contactTypeRadios.forEach(r => r.addEventListener('change', toggleContactFields));
-toggleContactFields();
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('DOMContentLoaded', fadeInOnScroll);
 
-// RSVP: отправка формы (пример интеграции с Google Таблиц через Apps Script Web App)
+// RSVP: отправка формы (Google Таблица через Apps Script)
 const rsvpForm = document.getElementById('rsvpForm');
 if (rsvpForm) {
   rsvpForm.onsubmit = function(e) {
     e.preventDefault();
-    // Собираем данные
     const data = {
       firstname: rsvpForm.firstname.value.trim(),
       lastname: rsvpForm.lastname.value.trim(),
-      contactType: rsvpForm.contactType.value,
       email: rsvpForm.email.value.trim(),
       telegram: rsvpForm.telegram.value.trim(),
       whatsapp: rsvpForm.whatsapp.value.trim()
     };
-    // Пример отправки в Google Apps Script Web App
     fetch("https://script.google.com/macros/s/AKfycby1Q04EL41Ew4bWDqtG_ajJ2hc4shlri-vQThV33vcb8LLWrWTox0lhxzTEGmkrzZAs/exec", {
       method: "POST",
       mode: "no-cors",
@@ -55,6 +48,19 @@ if (rsvpForm) {
     document.querySelector('#rsvp .thanks').classList.remove('hidden');
     setTimeout(() => document.querySelector('#rsvp .thanks').classList.add('hidden'), 5000);
     rsvpForm.reset();
-    toggleContactFields();
   };
 }
+
+// Gallery: zoom on click
+document.querySelectorAll('.gallery-img').forEach(img => {
+  img.addEventListener('click', function() {
+    const bg = document.createElement('div');
+    bg.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeInBg .3s;';
+    const big = document.createElement('img');
+    big.src = this.src;
+    big.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:1.7em;box-shadow:0 4px 54px #f76597bb;animation:zoomInImg .35s;';
+    bg.appendChild(big);
+    bg.onclick = () => bg.remove();
+    document.body.appendChild(bg);
+  });
+});
