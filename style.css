@@ -5,7 +5,8 @@
   --accent-light: #b5cba1;       /* светло-фисташковый */
   --accent2: #8c6e54;            /* коричневый для иконок/текста */
   --accent3: #fffbe7;            /* нежно-жёлтый */
-  --glass-bg: rgba(255, 255, 255, 0.84);
+  --glass-bg: linear-gradient(120deg, #fffdfad9 60%, #eaf9ecbb 100%);
+  --glass-bg-img: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABGklEQVQ4T2NkoBAwUqifwL+/v7/4z9dRk4GxK8Q/8ZiYGBgYGkA4n0kQMN4hP8PqK9/8XzCwMDAwMDAlQKxA4jJw3+p+D8l/9fBGxkZGSQF8P0P4r8JQqz8F4KQgoOLMABiQyQ6KgW1D0b8LwkjI4A5Fv1/4z8D8o/18kOQbK8CTxP2P8XxIL2k8j0QCZB+g8pPgf8P1Q/ifjvwfyzsD8c8h7F4A9hJwAAAwD6o3v5ZzDB2wAAAABJRU5ErkJggg==");
   --glass-blur: 18px;
   --radius: 32px;
   --shadow: 0 8px 36px rgba(139, 110, 84, 0.10);
@@ -150,37 +151,29 @@ main { z-index: 2; position: relative; }
   letter-spacing: 1px;
   font-family: var(--main-font);
 }
-.btn {
-  display: inline-block;
-  border: none;
-  border-radius: 2em;
-  padding: 0.7em 2.3em;
-  font-size: 1.13rem;
-  font-weight: 600;
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 2px 16px #b5cba166;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background .24s, color .22s, transform .18s, box-shadow .22s;
-  margin-top: 0.5em;
-  font-family: var(--main-font);
-}
-.main-btn {
+.btn, .main-btn {
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  color: #fff;
-  border: none;
+  color: #fff !important;
+  text-shadow: 0 1px 8px #2d2a1faa, 0 1px 0 #7b9b59cc;
+  font-weight: 700;
 }
+.btn:active, .main-btn:active { color: #fff; }
+
 .outline-btn {
-  background: none;
-  color: var(--accent2);
+  background: rgba(255,255,255,0.88);
+  color: var(--accent2) !important;
   border: 2px solid var(--accent2);
+  text-shadow: none;
+  font-weight: 700;
 }
-.outline-btn:hover, .main-btn:hover { background: var(--accent-light); color: #fffbe7; box-shadow: 0 6px 18px #b5cba199; transform: scale(1.07);}
-.btn:active { transform: scale(0.97); }
+.outline-btn:hover, .main-btn:hover {
+  background: var(--accent-light);
+  color: #fff !important;
+  text-shadow: 0 1px 8px #2d2a1faa;
+}
 
 .glass {
-  background: var(--glass-bg);
+  background: var(--glass-bg), var(--glass-bg-img) repeat;
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   backdrop-filter: blur(var(--glass-blur));
@@ -192,12 +185,13 @@ main { z-index: 2; position: relative; }
   z-index: 2;
   opacity: 0;
   transform: translateY(60px) scale(0.97);
-  transition: 
+  transition:
     opacity 0.8s cubic-bezier(.43,.2,.3,1.1),
     transform 0.8s cubic-bezier(.43,.2,.3,1.1);
   font-family: var(--main-font);
   color: var(--text-dark);
 }
+
 .glass.visible {
   opacity: 1;
   transform: none;
