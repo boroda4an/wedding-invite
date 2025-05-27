@@ -223,6 +223,66 @@ h2 {
   font-weight: 700;
 }
 
+/* FAQ */
+#faq .faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 520px;
+  font-size: 1.15em;
+}
+#faq .faq-list li {
+  margin-bottom: 1.1em;
+  padding-left: 0.2em;
+  color: var(--accent2);
+  font-family: var(--main-font);
+}
+
+/* Контакты */
+#contacts {
+  text-align: center;
+  font-size: 1.09em;
+}
+#contacts a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  transition: color .22s;
+}
+#contacts a:hover { color: var(--accent); }
+
+/* Как добраться */
+.how-to-get {
+  margin-top: 2em;
+  text-align: left;
+  background: rgba(255,255,255,0.03);
+  padding: 1em 1.1em;
+  border-radius: 1em;
+  box-shadow: 0 1px 8px #ff6a8d22;
+  color: var(--accent2);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.08em;
+}
+.how-to-get h3 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  color: var(--accent3);
+  font-family: var(--main-font);
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.how-to-get ul {
+  padding-left: 1.2em;
+  margin: 0;
+}
+.how-to-get li {
+  margin-bottom: 0.5em;
+  color: var(--accent2);
+  font-family: var(--main-font);
+}
+
 #timeline .timeline {
   margin: 2rem auto 0 auto;
   padding-left: 0;
