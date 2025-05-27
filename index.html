@@ -1,117 +1,43 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Свадьба Александра и Екатерины | 19.07.2025</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico">
-</head>
-<body>
-  <div class="video-bg-wrap">
-    <video class="video-bg" autoplay loop muted playsinline>
-      <source src="wedding-bg.mp4" type="video/mp4">
-    </video>
-    <div class="video-bg-overlay"></div>
-  </div>
+// Countdown Timer
+function updateTimer() {
+  const weddingDate = new Date('2025-07-19T16:00:00+03:00');
+  const now = new Date();
+  const diff = weddingDate - now;
+  if (diff <= 0) {
+    document.getElementById('timer').textContent = 'Свадьба уже началась!';
+    return;
+  }
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor(diff / (1000*60*60)) % 24;
+  const m = Math.floor(diff / (1000*60)) % 60;
+  const s = Math.floor(diff / 1000) % 60;
+  document.getElementById('timer').textContent =
+    `До свадьбы осталось: ${d} дн. ${h} ч. ${m} мин. ${s} сек.`;
+}
+setInterval(updateTimer, 1000);
+updateTimer();
 
-  <header>
-    <div class="container">
-      <div class="logo">
-        <span>💍</span>
-        <span>Alex & Kate</span>
-      </div>
-      <nav>
-        <a href="#story">Love Story</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#timeline">Программа</a>
-        <a href="#rsvp">RSVP</a>
-        <a href="#map">Локация</a>
-      </nav>
-    </div>
-  </header>
+// Gallery: zoom on click
+document.querySelectorAll('.gallery-img').forEach(img => {
+  img.addEventListener('click', function() {
+    const bg = document.createElement('div');
+    bg.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:9999;display:flex;align-items:center;justify-content:center;';
+    const big = document.createElement('img');
+    big.src = this.src;
+    big.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:1.7em;box-shadow:0 4px 54px #000a;';
+    bg.appendChild(big);
+    bg.onclick = () => bg.remove();
+    document.body.appendChild(bg);
+  });
+});
 
-  <section class="hero glass">
-    <div class="hero-content">
-      <h1>Александр <span>&</span> Екатерина</h1>
-      <p class="hero-date">19 июля 2025 &mdash; Москва</p>
-      <div class="countdown" id="timer"></div>
-      <a href="#rsvp" class="btn main-btn">Подтвердить участие</a>
-    </div>
-  </section>
-
-  <section class="glass" id="story">
-    <h2>Love Story</h2>
-    <div class="story-flex">
-      <img src="gallery1.jpg" alt="Love Story 1" class="story-img">
-      <div>
-        <p>Летом 2018 года наши пути пересеклись на морском побережье. С тех пор мы вместе открываем мир, мечтаем и строим планы.</p>
-        <p>19 июля 2025 мы хотим разделить с вами начало новой главы нашей истории!</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="glass" id="gallery">
-    <h2>Фото-галерея</h2>
-    <div class="gallery-grid">
-      <img src="gallery1.jpg" alt="Фото 1" class="gallery-img">
-      <img src="gallery2.jpg" alt="Фото 2" class="gallery-img">
-      <img src="gallery3.jpg" alt="Фото 3" class="gallery-img">
-      <img src="gallery4.jpg" alt="Фото 4" class="gallery-img">
-      <img src="gallery5.jpg" alt="Фото 5" class="gallery-img">
-    </div>
-  </section>
-
-  <section class="glass" id="timeline">
-    <h2>Программа дня</h2>
-    <ul class="timeline">
-      <li><span>16:00</span> Сбор гостей, welcome-drink</li>
-      <li><span>17:00</span> Торжественная церемония</li>
-      <li><span>18:00</span> Праздничный ужин</li>
-      <li><span>20:00</span> Танцы и веселье</li>
-      <li><span>23:00</span> Завершение вечера</li>
-    </ul>
-  </section>
-
-  <section class="glass" id="rsvp">
-    <h2>RSVP</h2>
-    <form id="rsvpForm">
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <select name="guests">
-        <option value="1">Я приду один/одна</option>
-        <option value="2">Я приду с парой</option>
-        <option value="3">Я приду с семьей</option>
-      </select>
-      <textarea name="wishes" placeholder="Пожелания или вопросы"></textarea>
-      <button type="submit" class="btn main-btn">Подтвердить</button>
-    </form>
-    <p class="thanks hidden">Спасибо за ваш ответ — до встречи на свадьбе!</p>
-  </section>
-
-  <section class="glass" id="map">
-    <h2>Локация</h2>
-    <div class="map-embed">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6e4d1c2c9f5e6b9c2b927cfb70d2f8c2e9c77a2b9e6c915c3b6d5e9d0b5f4a1f1&amp;source=constructor" width="100%" height="320" frameborder="0"></iframe>
-    </div>
-    <a href="https://yandex.ru/maps/?text=Ресторан Летний сад Москва" target="_blank" class="btn outline-btn">Открыть в Яндекс.Картах</a>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-socials">
-        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
-          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#E1306C"/><rect x="7" y="7" width="10" height="10" rx="3" fill="#fff"/><circle cx="17" cy="7" r="1.2" fill="#fff"/></svg>
-        </a>
-        <a href="https://vk.com/yourprofile" target="_blank" aria-label="VK">
-          <svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="#4C75A3"/><path d="M16 13.5c.4.4.8.8 1.2 1.3.2.2.4.4.6.7.3.3.2.6-.2.7h-2.1c-.4 0-.8-.2-1.1-.5-.5-.5-.9-1.1-1.4-1.6-.2-.2-.4-.5-.6-.7-.3-.3-.5-.4-.9 0-.2.3-.4.6-.6.9-.3.5-.2.7.3.7.3 0 .6 0 .9 0 .2 0 .3 0 .5 0 .4 0 .6.2.7.6 0 .2.1.4 0 .6 0 .4-.2.6-.7.6-.8.1-1.7 0-2.5 0-1.7 0-3.3 0-5 0-.4 0-.7-.2-.7-.6 0-.2 0-.4 0-.6 0-.4.3-.5.7-.6.3 0 .5 0 .8 0 .2 0 .4 0 .6 0 .5 0 .7-.1.3-.7-.2-.4-.5-.8-.8-1.2C6.6 12 5.6 10.5 4.6 9c-.2-.2-.3-.4-.4-.7-.2-.3-.1-.5.3-.5.3 0 .5 0 .8 0 .4 0 .6.2.8.5.6.9 1.2 1.8 1.8 2.7.2.3.3.5.5.8.1.1.2.2.2.3.1.1.2.1.3.1.1 0 .1-.1.1-.3 0-.3 0-.6 0-.9 0-.3-.1-.5-.3-.7-.3-.4-.7-.7-1-.1-.1-.1 0-.3.2-.5.2-.2.4-.2.6 0 .2.2.4.4.6.6 1 1.2 2.1 2.3 3.2 3.4.2.2.4.3.7 0 .4-.5.9-1 1.3-1.5.3-.3.2-.5-.1-.6-.2-.1-.4-.1-.5-.2-.4-.1-.5-.3-.2-.7.4-.5.7-1.1 1-1.6.2-.3.4-.3.7-.1.1.1.2.3.3.4.7.9 1.4 1.8 2.2 2.6.2.2.4.4.5.6.2.3.3.5.1.8-.4.4-.8.9-1.1 1.3-.2.3-.2.5 0 .7z" fill="#fff"/></svg>
-        </a>
-      </div>
-      <p>© 2025 Александр и Екатерина</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+// RSVP form
+const rsvpForm = document.getElementById('rsvpForm');
+if (rsvpForm) {
+  rsvpForm.onsubmit = function(e) {
+    e.preventDefault();
+    document.querySelector('#rsvp .thanks').classList.remove('hidden');
+    setTimeout(() => document.querySelector('#rsvp .thanks').classList.add('hidden'), 5000);
+    this.reset();
+  };
+}
