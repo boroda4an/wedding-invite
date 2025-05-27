@@ -6,28 +6,11 @@
   <title>Свадьба Романа и Виктории | 19.07.2025</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Parisienne&family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    /* Чтобы блоки появлялись с анимацией при прокрутке */
-    document.addEventListener('DOMContentLoaded', function() {
-      function revealBlocks() {
-        let blocks = document.querySelectorAll('.block');
-        let windowHeight = window.innerHeight;
-        blocks.forEach(function(block) {
-          let position = block.getBoundingClientRect().top;
-          if (position < windowHeight - 80) {
-            block.classList.add('visible');
-          }
-        });
-      }
-      window.addEventListener('scroll', revealBlocks);
-      setTimeout(revealBlocks, 400);
-    });
-  </style>
 </head>
 <body>
   <div class="bg-video-wrap">
     <video class="bg-video" autoplay loop muted playsinline poster="poster.jpg">
-      <source src="cherry-blossom.mp4" type="video/mp4">
+      <source src="cherry-blossoms.mp4" type="video/mp4">
       Ваш браузер не поддерживает видеофон.
     </video>
     <div class="bg-overlay"></div>
@@ -66,7 +49,7 @@
       </section>
       <section class="glass block" id="celebrate">
         <h2>Быть с нами — лучшая радость!</h2>
-        <form id="rsvpForm">
+        <form id="rsvpForm" autocomplete="off">
           <div class="form-row">
             <input type="text" name="firstname" placeholder="Имя" required>
             <input type="text" name="lastname" placeholder="Фамилия" required>
@@ -144,21 +127,53 @@
     </div>
   </footer>
   <script>
-    // Анимация появления блоков при прокрутке
+    // Таймер до 19.07.2025
+    function updateTimer() {
+      const eventDate = new Date("2025-07-19T14:00:00+03:00");
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        document.getElementById('timer').innerHTML = "Скоро увидимся!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById('timer').innerHTML = `
+        <span>${days}</span> дней
+        <span>${hours.toString().padStart(2, '0')}</span> ч
+        <span>${minutes.toString().padStart(2, '0')}</span> м
+        <span>${seconds.toString().padStart(2, '0')}</span> с
+      `;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Форма: показать спасибо и скрыть форму
     document.addEventListener('DOMContentLoaded', function() {
-      function revealBlocks() {
-        let blocks = document.querySelectorAll('.block');
-        let windowHeight = window.innerHeight;
-        blocks.forEach(function(block) {
-          let position = block.getBoundingClientRect().top;
-          if (position < windowHeight - 80) {
-            block.classList.add('visible');
-          }
+      const form = document.getElementById('rsvpForm');
+      const thanks = document.getElementById('thanks-message');
+      if(form) {
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          form.style.display = "none";
+          thanks.classList.add('visible');
+          setTimeout(()=>thanks.scrollIntoView({behavior:'smooth', block:'center'}),500);
         });
       }
-      window.addEventListener('scroll', revealBlocks);
-      setTimeout(revealBlocks, 400);
-      revealBlocks();
+
+      // Календарь-попап (пример)
+      const calendarModal = document.getElementById('calendar-modal');
+      const calendarYes = document.getElementById('calendar-yes');
+      const calendarNo = document.getElementById('calendar-no');
+      if(calendarYes && calendarNo){
+        calendarYes.onclick = function(){
+          window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Свадьба+Романа+и+Виктории&dates=20250719T140000/20250719T230000&details=Ждём+вас+на+свадьбе!&location=Москва,+Проспект+Мира,+109А', '_blank');
+          calendarModal.classList.add('hidden');
+        };
+        calendarNo.onclick = function(){calendarModal.classList.add('hidden');};
+      }
     });
   </script>
 </body>
