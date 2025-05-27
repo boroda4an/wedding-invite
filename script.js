@@ -35,6 +35,7 @@ if (rsvpForm) {
     const data = {
       firstname: rsvpForm.firstname.value.trim(),
       lastname: rsvpForm.lastname.value.trim(),
+      message: rsvpForm.message.value.trim(),
       email: rsvpForm.email.value.trim(),
       telegram: rsvpForm.telegram.value.trim(),
       whatsapp: rsvpForm.whatsapp.value.trim()
@@ -50,17 +51,3 @@ if (rsvpForm) {
     rsvpForm.reset();
   };
 }
-
-// Gallery: zoom on click
-document.querySelectorAll('.gallery-img').forEach(img => {
-  img.addEventListener('click', function() {
-    const bg = document.createElement('div');
-    bg.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeInBg .3s;';
-    const big = document.createElement('img');
-    big.src = this.src;
-    big.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:1.7em;box-shadow:0 4px 54px #f76597bb;animation:zoomInImg .35s;';
-    bg.appendChild(big);
-    bg.onclick = () => bg.remove();
-    document.body.appendChild(bg);
-  });
-});
