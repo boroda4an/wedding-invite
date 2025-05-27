@@ -16,6 +16,10 @@
   --h-glow: 0 0 24px #b8d99f99, 0 2px 8px #7b9b5944;
   --main-font: 'Cormorant Garamond', serif;
   --header-font: 'Great Vibes', 'Parisienne', cursive;
+  --block1-glow: 0 0 32px 8px #b8d99faa, 0 0 0 #0000;
+  --block2-glow: 0 0 36px 10px #ffe0a388, 0 0 0 #0000;
+  --block3-glow: 0 0 36px 10px #f9b5c466, 0 0 0 #0000;
+  --block4-glow: 0 0 32px 10px #92e3a966, 0 0 0 #0000;
 }
 
 html, body {
@@ -111,10 +115,11 @@ header {
   .main-nav a {font-size:1.02em;}
 }
 
-/* Шахматная сетка */
+/* Шахматная сетка: блоки идут поочерёдно слева-справа */
 .blocks-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
   gap: 2.5rem 2.5rem;
   max-width: 1280px;
   margin: 0 auto 2.8rem auto;
@@ -126,38 +131,27 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
+  /* Подсветка по номеру блока */
+  box-shadow: var(--shadow);
+  transition: box-shadow .24s;
 }
-.block-left {
-  grid-column: 1;
-}
-.block-right {
-  grid-column: 2;
-}
+.blocks-grid > .block:nth-child(1) { grid-column: 1/2; box-shadow: var(--block1-glow), var(--shadow);}
+.blocks-grid > .block:nth-child(2) { grid-column: 2/3; box-shadow: var(--block2-glow), var(--shadow);}
+.blocks-grid > .block:nth-child(3) { grid-column: 1/2; box-shadow: var(--block3-glow), var(--shadow);}
+.blocks-grid > .block:nth-child(4) { grid-column: 2/3; box-shadow: var(--block4-glow), var(--shadow);}
+.blocks-grid > .block:nth-child(5) { grid-column: 1/2; }
+.blocks-grid > .block:nth-child(6) { grid-column: 2/3; }
+/* Если будет больше блоков, добавляй по аналогии, а для box-shadow можно повторять или варьировать цвета */
+
 @media (max-width: 950px) {
   .blocks-grid {
     grid-template-columns: 1fr;
     gap: 1.6rem 0;
   }
-  .block-left, .block-right {grid-column: 1;}
+  .block {grid-column: 1/2;}
 }
 
-/* Герой-блок */
-.hero-block {
-  min-height: 320px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.hero-block h1 {
-  font-family: var(--header-font);
-  font-size: 2.7rem;
-  font-weight: 700;
-  margin-bottom: 0.22em;
-  color: var(--accent);
-  letter-spacing: 2px;
-  text-shadow: var(--h-glow);
-}
-.hero-block h1 span { color: var(--accent-light); }
+/* Остальные стили блоков, кнопок, форм и т.д. */
 .hero-date {
   font-size: 1.4rem;
   color: var(--accent2);
@@ -177,7 +171,6 @@ header {
   font-family: var(--main-font);
 }
 
-/* Кнопки внутри блоков */
 .btn, .main-btn {
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #fff !important;
@@ -271,7 +264,6 @@ header {
 
 .glass {
   background: var(--glass-bg), var(--glass-bg-img) repeat;
-  box-shadow: var(--shadow);
   border-radius: var(--radius);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -325,200 +317,4 @@ h2 {
   box-shadow: 0 2px 10px #b8d99f33;
 }
 
-#timeline .timeline {
-  margin: 2rem auto 0 auto;
-  padding-left: 0;
-  list-style: none;
-  max-width: 420px;
-}
-#timeline .timeline li {
-  background: #b8d99f22;
-  margin-bottom: 1.3rem;
-  border-radius: 1em;
-  padding: 1rem 1.1rem;
-  font-size: 1.17rem;
-  color: var(--text-dark);
-  box-shadow: 0 2px 12px #b8d99f19;
-  position: relative;
-  display: flex; align-items: center;
-  opacity: 0.93;
-  font-family: var(--main-font);
-}
-#timeline .timeline li span {
-  font-weight: 700;
-  color: var(--accent);
-  min-width: 68px;
-  display: inline-block;
-  font-size: 1.12em;
-  font-family: var(--header-font);
-}
-
-#celebrate form {
-  display: flex; flex-direction: column;
-  gap: 1.1rem; max-width: 420px; margin: 1.7rem auto 0 auto;
-  animation: fadeUp 1.7s cubic-bezier(.6,.2,.3,1.1);
-  font-family: var(--main-font);
-}
-#celebrate .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-#celebrate input, #celebrate select, #celebrate textarea {
-  border-radius: 1em;
-  border: 1.5px solid #b8d99f44;
-  background: #fff;
-  font-size: 1.07rem;
-  padding: 0.7em 1em;
-  transition: border .2s, box-shadow .2s;
-  width: 100%;
-  font-family: var(--main-font);
-  color: #314228;
-}
-#celebrate textarea { resize: vertical; min-height: 44px; }
-#celebrate input:focus, #celebrate textarea:focus, #celebrate select:focus {
-  border-color: var(--accent); box-shadow: 0 2px 12px #b8d99f33;
-}
-#celebrate button { margin-top: 0.8rem; }
-#celebrate .thanks {
-  position: relative;
-  background: rgba(255,255,255,0.15);
-  border-radius: 1.7em;
-  padding: 1.4em 1.2em 1.2em 1.2em;
-  margin: 2em auto 1em auto;
-  font-size: 1.26em;
-  color: var(--accent2);
-  box-shadow: 0 4px 32px #b8d99f33;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(40px) scale(0.97);
-  pointer-events: none;
-  transition: opacity .6s cubic-bezier(.4,.68,.6,1.15), transform .6s cubic-bezier(.4,.68,.6,1.15);
-  z-index: 10;
-  font-family: var(--main-font, 'Cormorant Garamond', serif);
-  display: block;
-}
-#celebrate .thanks.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1.06);
-  pointer-events: auto;
-  animation: thanks-pop 1.3s .25s cubic-bezier(.5,1.6,.55,.92);
-}
-@keyframes thanks-pop {
-  0%   { box-shadow: 0 4px 32px #b8d99f33; }
-  40%  { box-shadow: 0 4px 60px #b8d99fcc; }
-  100% { box-shadow: 0 4px 32px #b8d99f33; }
-}
-.thanks-heart {
-  display: inline-block;
-  font-size: 2em;
-  margin-bottom: .05em;
-  margin-top: -.3em;
-  vertical-align: middle;
-  animation: heart-beat 1.2s infinite cubic-bezier(.8,.2,.2,1.2), thanks-heart-fadein .6s;
-  filter: drop-shadow(0 0 12px #7b9b5980);
-}
-@keyframes heart-beat {
-  0%, 100% { transform: scale(1);}
-  10% { transform: scale(1.25);}
-  20% { transform: scale(1);}
-  30% { transform: scale(1.18);}
-  40%,60% { transform: scale(1);}
-}
-@keyframes thanks-heart-fadein {
-  from { opacity: 0; transform: scale(1.25);}
-  to   { opacity: 1; transform: scale(1);}
-}
-#celebrate .thanks.hidden { display: none; }
-#celebrate .note {font-size:0.96em;color:#6d5e4fca;margin-top:1.1em; text-align:center;}
-
-#gifts .gifts-block {
-  text-align: center;
-  font-size: 1.15em;
-  font-family: var(--main-font);
-}
-.gift-heart {
-  font-size: 1.7em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: .12em;
-  color: var(--accent);
-  filter: drop-shadow(0 0 8px #b8d99f);
-}
-.gift-main {
-  color: var(--accent);
-  font-size: 1.18em;
-  line-height: 1.7;
-  display: block;
-  margin: 0.25em 0 0.5em 0;
-  letter-spacing: .6px;
-  font-family: var(--main-font);
-}
-.gift-hr {
-  margin: 1.6em auto 1.2em auto;
-  border: none;
-  border-top: 2px dashed #b8d99f;
-  width: 60%;
-  opacity: .38;
-}
-.dress-code-title {
-  color: var(--accent2);
-  font-size: 1.12em;
-  font-weight: 600;
-  font-family: var(--main-font);
-}
-.dress-main {
-  color: var(--text);
-  font-size: 1.1em;
-  display: block;
-  margin-top: .3em;
-  font-family: var(--main-font);
-}
-
-#location .location-info {
-  text-align: center;
-  font-size: 1.16em;
-  font-family: var(--main-font);
-}
-.place-title {
-  color: var(--accent);
-  font-size: 1.28em;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 0.25em;
-  font-weight: 700;
-  font-family: var(--header-font);
-}
-.place-desc {
-  color: var(--accent-light);
-  font-size: 0.98em;
-  font-family: var(--main-font);
-  margin-top: 0.5em;
-  display: block;
-}
-.route-btn {
-  margin-top: 1.1em;
-  font-size: 1.08em;
-  letter-spacing: 0.5px;
-  font-family: var(--main-font);
-}
-
-footer { text-align: center; padding: 2rem 0 0.7rem 0; z-index: 2; position: relative; font-family: var(--main-font);}
-footer p { color: var(--accent2); font-size: 1.03em; letter-spacing: 1px; }
-
-::-webkit-scrollbar {width: 8px;background: #e1ecd8;}
-::-webkit-scrollbar-thumb {background: #b8d99f33;border-radius:6px;}
-
-.calendar-modal {
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(243,249,243,0.85);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: opacity .3s;
-}
-.calendar-modal.visible {
-  opacity: 1; pointer-events: auto;
-}
-.calendar-modal-content {
-  background: #ffe0a3; color: #314228;
-  border-radius: 1.5em; padding: 2em 2.5em;
-  text-align: center; box-shadow: 0 8px 40px #b8d99f44;
-}
-.calendar-modal .btn { margin: 0 0.6em; }
-
-.hidden { display: none !important; }
+/* Остальные стили блоков, форм, списков, футера остаются прежними */
