@@ -6,6 +6,23 @@
   <title>Свадьба Романа и Виктории | 19.07.2025</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Parisienne&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    /* Чтобы блоки появлялись с анимацией при прокрутке */
+    document.addEventListener('DOMContentLoaded', function() {
+      function revealBlocks() {
+        let blocks = document.querySelectorAll('.block');
+        let windowHeight = window.innerHeight;
+        blocks.forEach(function(block) {
+          let position = block.getBoundingClientRect().top;
+          if (position < windowHeight - 80) {
+            block.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', revealBlocks);
+      setTimeout(revealBlocks, 400);
+    });
+  </style>
 </head>
 <body>
   <div class="bg-video-wrap">
@@ -31,13 +48,13 @@
   </header>
   <main>
     <div class="blocks-grid">
-      <section class="glass fadein block" id="hero-block">
+      <section class="glass block" id="hero-block">
         <h1>Роман <span>&</span> Виктория</h1>
         <p class="hero-date">19 июля 2025 &mdash; Москва</p>
         <div class="countdown" id="timer"></div>
         <a href="#celebrate" class="btn main-btn">Я буду с вами!</a>
       </section>
-      <section class="glass fadein block" id="timeline">
+      <section class="glass block" id="timeline">
         <h2>Программа дня</h2>
         <ul class="timeline">
           <li><span>14:00</span>🏃 Сбор гостей, welcome-drink🍷</li>
@@ -47,7 +64,7 @@
           <li><span>22:00</span> 🎇Завершение вечера🎇</li>
         </ul>
       </section>
-      <section class="glass fadein block" id="celebrate">
+      <section class="glass block" id="celebrate">
         <h2>Быть с нами — лучшая радость!</h2>
         <form id="rsvpForm">
           <div class="form-row">
@@ -82,7 +99,7 @@
           </div>
         </div>
       </section>
-      <section class="glass fadein block" id="gifts">
+      <section class="glass block" id="gifts">
         <h2>Подарки и дресс-код</h2>
         <div class="gifts-block">
           <p class="gift-text">
@@ -106,7 +123,7 @@
           </p>
         </div>
       </section>
-      <section class="glass fadein block" id="location">
+      <section class="glass block" id="location">
         <h2>Место проведения</h2>
         <div class="location-info">
           <p>
@@ -126,6 +143,23 @@
       <p>© 2025 Роман и Виктория</p>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script>
+    // Анимация появления блоков при прокрутке
+    document.addEventListener('DOMContentLoaded', function() {
+      function revealBlocks() {
+        let blocks = document.querySelectorAll('.block');
+        let windowHeight = window.innerHeight;
+        blocks.forEach(function(block) {
+          let position = block.getBoundingClientRect().top;
+          if (position < windowHeight - 80) {
+            block.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', revealBlocks);
+      setTimeout(revealBlocks, 400);
+      revealBlocks();
+    });
+  </script>
 </body>
 </html>
