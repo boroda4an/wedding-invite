@@ -23,27 +23,17 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// Отправка формы через Google Apps Script Web App
+// Отправка формы через Google Apps Script Web App (FormData!)
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('rsvpForm');
   const thanks = document.getElementById('thanks-message');
   if(form) {
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      const data = {
-        firstname: form.firstname.value,
-        lastname: form.lastname.value,
-        message: form.message.value,
-        email: form.email.value,
-        telegram: form.telegram.value,
-        whatsapp: form.whatsapp.value
-      };
+      const formData = new FormData(form);
       fetch('https://script.google.com/macros/s/14F8zNzVtTeBvTUfjrG7u0n-RHdTcuwTgaIoVDJtZaCn4hX-pXCr-LggZ/exec', {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        body: formData
       }).then(function(response){
         form.style.display = "none";
         thanks.style.display = "block";
