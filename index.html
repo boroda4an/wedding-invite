@@ -1,116 +1,348 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Свадьба Романа и Виктории | 19.07.2025</title>
-  <link rel="stylesheet" href="style.css"/>
-  <!-- Каллиграфические шрифты -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="bg-video-wrap">
-    <video class="bg-video" autoplay loop muted playsinline poster="poster.jpg">
-      <source src="hearts-bg.mp4" type="video/mp4">
-      Ваш браузер не поддерживает видеофон.
-    </video>
-    <div class="bg-overlay"></div>
-  </div>
+:root {
+  --main-bg: #faf6f2;
+  --accent: #b6a4c8;
+  --accent2: #e4c0d3;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-blur: 18px;
+  --radius: 28px;
+  --shadow: 0 8px 36px rgba(182, 164, 200, 0.10);
+  --text: #4b3b4e;
+  --h-glow: 0 0 18px #b6a4c8cc, 0 2px 8px #dac4e644;
+}
 
-  <header>
-    <div class="container">
-      <div class="logo">Роман & Виктория</div>
-      <nav>
-        <a href="#timeline">Программа</a>
-        <a href="#celebrate">Быть с нами</a>
-        <a href="#gifts">Подарки и дресс-код</a>
-        <a href="#location">Локация</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero glass fadein">
-      <h1>Роман <span>&</span> Виктория</h1>
-      <p class="hero-date">19 июля 2025 &mdash; Москва</p>
-      <div class="countdown" id="timer"></div>
-      <a href="#celebrate" class="btn main-btn">Я буду с вами!</a>
-    </section>
-    <section class="glass fadein" id="timeline">
-      <h2>Программа дня</h2>
-      <ul class="timeline">
-        <li><span>16:00</span> Сбор гостей, welcome-drink</li>
-        <li><span>17:00</span> Торжественная церемония</li>
-        <li><span>18:00</span> Праздничный ужин</li>
-        <li><span>20:00</span> Танцы и веселье</li>
-        <li><span>23:00</span> Завершение вечера</li>
-      </ul>
-    </section>
-    <section class="glass fadein" id="celebrate">
-      <h2>Быть с нами — лучшая радость!</h2>
-      <form id="rsvpForm">
-        <div class="form-row">
-          <input type="text" name="firstname" placeholder="Имя" required>
-          <input type="text" name="lastname" placeholder="Фамилия" required>
-        </div>
-        <div class="form-row">
-          <textarea name="message" placeholder="Можете добавить пожелание или комментарий (необязательно)" rows="2"></textarea>
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" placeholder="Email (по желанию)">
-        </div>
-        <div class="form-row">
-          <input type="text" name="telegram" placeholder="Telegram (по желанию)">
-        </div>
-        <div class="form-row">
-          <input type="text" name="whatsapp" placeholder="WhatsApp (по желанию)">
-        </div>
-        <button type="submit" class="btn main-btn">Я буду с вами!</button>
-      </form>
-      <p class="thanks hidden">Спасибо за ваш отклик! Мы счастливы разделить этот день с вами ❤️</p>
-      <p class="note">Ваш ответ отправлен организаторам</p>
-    </section>
-    <section class="glass fadein" id="gifts">
-      <h2>Подарки и дресс-код</h2>
-      <div class="gifts-block">
-        <p class="gift-text">
-          <span class="gift-heart">💌</span>
-          <span class="gift-main">
-            Ваше присутствие — самый ценный подарок для нас!<br>
-            Если вы всё же захотите принести что-то ещё,<br>
-            мы будем благодарны денежному конверту.<br>
-            Пожалуйста, не тратьте силы на поиски «сюрпризов»:<br>
-            пусть этот день будет лёгким, ярким и радостным для всех!
-          </span>
-        </p>
-        <hr class="gift-hr">
-        <p class="dress-text">
-          <span class="dress-code-title">Дресс-код:</span>
-          <span class="dress-main">
-            <br>Главное — приходите такими, какими вам комфортно!<br>
-            Не ограничивайте себя рамками: мы за свободу самовыражения и искренние улыбки.
-          </span>
-        </p>
-      </div>
-    </section>
-    <section class="glass fadein" id="location">
-      <h2>Место проведения</h2>
-      <div class="location-info">
-        <p>
-          <span class="place-title">Колиzей Холл</span><br>
-          Москва, Проспект Мира, 109А, 1 этаж <br>
-          <span class="place-desc">Будем ждать ❤️</span>
-        </p>
-        <a href="https://yandex.ru/maps/-/CHC0fA--" target="_blank" class="btn outline-btn route-btn">
-          Построить маршрут
-        </a>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="container">
-      <p>© 2025 Роман и Виктория</p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
-</body>
-</html>
+html, body {
+  margin: 0; padding: 0; min-height: 100vh;
+  background: var(--main-bg);
+  color: var(--text);
+  font-family: 'Montserrat', Arial, sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.bg-video-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bg-video {
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  position: absolute; left: 0; top: 0;
+  filter: brightness(0.55) blur(0.5px) saturate(1.08);
+  z-index: 0;
+}
+.bg-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 10%, #e4c0d355 0%, #faf6f2 90%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+header {
+  position: relative; z-index: 2;
+  background: none;
+  padding: 1.3rem 0 0.3rem 0;
+  animation: fadeDown 1.1s cubic-bezier(.7,.2,.3,1.1);
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 950px; margin: 0 auto; padding: 0 1.2rem;
+}
+.logo {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.1rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: var(--h-glow);
+  user-select: none;
+  white-space: nowrap;
+}
+nav {
+  display: flex;
+  gap: 0.7em;
+  align-items: center;
+}
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.3em 1.4em;
+  border-radius: 1.1em;
+  font-weight: 600;
+  transition: background .22s, color .22s, box-shadow .22s;
+  box-shadow: none;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border: 2px solid transparent;
+  margin: 0;
+  outline: none;
+  position: relative;
+}
+nav a:hover, nav a:focus {
+  background: var(--accent2);
+  color: #fff;
+  border-color: var(--accent2);
+}
+
+@media (max-width: 900px) {
+  header .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7em;
+  }
+  nav {
+    justify-content: center;
+    gap: 0.4em;
+    flex-wrap: wrap;
+  }
+  nav a {
+    flex: 1 1 150px;
+    min-width: 100px;
+    text-align: center;
+    font-size: 1.09em;
+  }
+}
+
+main { z-index: 2; position: relative; }
+
+.hero {
+  min-height: 68vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; z-index: 2; text-align: center;
+  margin-top: 2vw;
+  animation: fadeUp 1.3s cubic-bezier(.7,.2,.3,1.1);
+}
+.hero h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 3.1rem;
+  font-weight: 700;
+  margin-bottom: 0.22em;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-shadow: var(--h-glow);
+}
+.hero h1 span { color: var(--accent2); }
+.hero-date {
+  font-size: 1.24rem;
+  color: var(--accent);
+  margin-bottom: 1.2em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 6px #e4c0d366;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.countdown {
+  color: var(--accent2);
+  font-size: 1.13rem;
+  font-weight: 600;
+  margin-bottom: 2em;
+  text-shadow: 0 0 8px #b6a4c888;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em 2.3em;
+  font-size: 1.13rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 16px #b6a4c866;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .24s, color .22s, transform .18s, box-shadow .22s;
+  margin-top: 0.5em;
+  font-family: inherit;
+}
+.main-btn {
+  background: linear-gradient(90deg, var(--accent2) 20%, var(--accent) 80%);
+  color: #fff;
+}
+.outline-btn {
+  background: none;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.outline-btn:hover, .main-btn:hover { background: var(--accent); color: #fff; box-shadow: 0 6px 18px #b6a4c8cc; transform: scale(1.07);}
+.btn:active { transform: scale(0.97); }
+
+.glass {
+  background: var(--glass-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  padding: 2.2rem 2rem;
+  margin: 2.2rem auto;
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(60px) scale(0.97);
+  transition: 
+    opacity 0.8s cubic-bezier(.43,.2,.3,1.1),
+    transform 0.8s cubic-bezier(.43,.2,.3,1.1);
+}
+.glass.visible {
+  opacity: 1;
+  transform: none;
+}
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(90px);}
+  100% { opacity: 1; transform: none;}
+}
+@keyframes fadeDown {
+  0% { opacity: 0; transform: translateY(-60px);}
+  100% { opacity: 1; transform: none;}
+}
+.fadein { opacity: 0; transform: translateY(60px) scale(0.97);}
+.fadein.visible { opacity: 1; transform: none; transition: opacity 1.1s, transform 1.1s;}
+
+h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--accent);
+  margin-top: 0; margin-bottom: 1.6rem;
+  text-shadow: 0 2px 18px #b6a4c844;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+#timeline .timeline {
+  margin: 2rem auto 0 auto;
+  padding-left: 0;
+  list-style: none;
+  max-width: 420px;
+}
+#timeline .timeline li {
+  background: #e4c0d321;
+  margin-bottom: 1.3rem;
+  border-radius: 1em;
+  padding: 1rem 1.1rem;
+  font-size: 1.1rem;
+  color: var(--text);
+  box-shadow: 0 2px 12px #e4c0d322;
+  position: relative;
+  display: flex; align-items: center;
+  opacity: 0.93;
+  font-family: inherit;
+}
+#timeline .timeline li span {
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 68px;
+  display: inline-block;
+  font-size: 1.08em;
+}
+
+#celebrate form {
+  display: flex; flex-direction: column;
+  gap: 1.1rem; max-width: 420px; margin: 1.7rem auto 0 auto;
+  animation: fadeUp 1.7s cubic-bezier(.6,.2,.3,1.1);
+  font-family: inherit;
+}
+#celebrate .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+#celebrate input, #celebrate select, #celebrate textarea {
+  border-radius: 1em;
+  border: 1.5px solid #b6a4c842;
+  background: #fff;
+  font-size: 1.07rem;
+  padding: 0.7em 1em;
+  transition: border .2s, box-shadow .2s;
+  width: 100%;
+  font-family: inherit;
+}
+#celebrate textarea { resize: vertical; min-height: 44px; }
+#celebrate input:focus, #celebrate textarea:focus, #celebrate select:focus {
+  border-color: var(--accent); box-shadow: 0 2px 12px #b6a4c833;
+}
+#celebrate button { margin-top: 0.8rem; }
+#celebrate .thanks { color: var(--accent); font-size: 1.15rem; margin-top: 1.2rem; }
+#celebrate .thanks.hidden { display: none; }
+#celebrate .note {font-size:0.96em;color:#b6a4c8bb;margin-top:1.1em; text-align:center;}
+
+/* Подарки и дресс-код */
+#gifts .gifts-block {
+  text-align: center;
+  font-size: 1.12em;
+  font-family: inherit;
+}
+.gift-heart {
+  font-size: 1.6em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: .12em;
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px #e4c0d3);
+}
+.gift-main {
+  color: var(--accent);
+  font-size: 1.12em;
+  line-height: 1.65;
+  display: block;
+  margin: 0.25em 0 0.5em 0;
+  letter-spacing: .5px;
+  font-family: inherit;
+}
+.gift-hr {
+  margin: 1.6em auto 1.2em auto;
+  border: none;
+  border-top: 2px dashed #b6a4c8;
+  width: 60%;
+  opacity: .35;
+}
+.dress-code-title {
+  color: var(--accent2);
+  font-size: 1.05em;
+  font-weight: 600;
+  font-family: inherit;
+}
+.dress-main {
+  color: #7c6f8a;
+  font-size: 1.05em;
+  display: block;
+  margin-top: .3em;
+  font-family: inherit;
+}
+
+/* Локация */
+#location .location-info {
+  text-align: center;
+  font-size: 1.13em;
+  font-family: inherit;
+}
+.place-title {
+  color: var(--accent);
+  font-size: 1.23em;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.25em;
+  font-weight: 700;
+  font-family: inherit;
+}
+.place-desc {
+  color: #b6a4c8;
+  font-size: 0.98em;
+  font-family: inherit;
+  margin-top: 0.5em;
+  display: block;
+}
+.route-btn {
+  margin-top: 1.1em;
+  font-size: 1.08em;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+footer { text-align: center; padding: 2rem 0 0.7rem 0; z-index: 2; position: relative; font-family: inherit;}
+footer p { color: var(--accent); font-size: 1.03em; letter-spacing: 1px; }
+
+::-webkit-scrollbar {width: 8px;background: #f3e9f7;}
+::-webkit-scrollbar-thumb {background: #e4c0d355;border-radius:6px;}
