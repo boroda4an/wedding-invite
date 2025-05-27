@@ -21,28 +21,3 @@ function updateTimer() {
 }
 setInterval(updateTimer, 1000);
 updateTimer();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('rsvpForm');
-  const thanks = document.getElementById('thanks-message');
-  if(form) {
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      form.style.display = "none";
-      thanks.classList.add('visible');
-      setTimeout(()=>thanks.scrollIntoView({behavior:'smooth', block:'center'}),500);
-    });
-  }
-
-  // Календарь-попап (пример)
-  const calendarModal = document.getElementById('calendar-modal');
-  const calendarYes = document.getElementById('calendar-yes');
-  const calendarNo = document.getElementById('calendar-no');
-  if(calendarYes && calendarNo){
-    calendarYes.onclick = function(){
-      window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Свадьба+Романа+и+Виктории&dates=20250719T140000/20250719T230000&details=Ждём+вас+на+свадьбе!&location=Москва,+Проспект+Мира,+109А', '_blank');
-      calendarModal.classList.add('hidden');
-    };
-    calendarNo.onclick = function(){calendarModal.classList.add('hidden');};
-  }
-});
