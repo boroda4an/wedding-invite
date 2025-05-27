@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         telegram: form.telegram.value,
         whatsapp: form.whatsapp.value
       };
-      fetch('https://script.google.com/macros/s/AKfycbx6cyTjIjoryhvVq-8fGpiGItTbvXQol8oAFYO4ObpTXyeLJFqFFnkfN3dF9GykfIKq/exec', {
+      fetch('https://script.google.com/macros/s/14F8zNzVtTeBvTUfjrG7u0n-RHdTcuwTgaIoVDJtZaCn4hX-pXCr-LggZ/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
