@@ -32,7 +32,6 @@
   <main>
     <div class="blocks-grid">
       <section class="glass block" id="hero-block">
-        <div class="falling-decor"></div>
         <h1>Роман <span>&</span> Виктория</h1>
         <p class="hero-date">19 июля 2025 &mdash; Москва</p>
         <div class="countdown-wrap">
@@ -41,7 +40,6 @@
         <a href="#celebrate" class="btn main-btn">Я буду с вами!</a>
       </section>
       <section class="glass block" id="timeline">
-        <div class="falling-decor"></div>
         <h2>Программа дня</h2>
         <ul class="timeline">
           <li>
@@ -72,7 +70,6 @@
         </ul>
       </section>
       <section class="glass block" id="celebrate">
-        <div class="falling-decor"></div>
         <h2>Быть с нами — лучшая радость!</h2>
         <form id="rsvpForm" autocomplete="off">
           <div class="form-row">
@@ -108,7 +105,6 @@
         </div>
       </section>
       <section class="glass block" id="gifts">
-        <div class="falling-decor"></div>
         <h2>Подарки и дресс-код</h2>
         <div class="gifts-block">
           <p class="gift-text">
@@ -133,7 +129,6 @@
         </div>
       </section>
       <section class="glass block" id="location">
-        <div class="falling-decor"></div>
         <h2>Место проведения</h2>
         <div class="location-info">
           <p>
@@ -201,31 +196,6 @@
         };
         calendarNo.onclick = function(){calendarModal.classList.add('hidden');};
       }
-
-      // --- Цветочки, листики, лепестки ---
-      // Эмодзи для сыпания (можно добавить свои)
-      const EMOJIS = ['🌸','🌿','🌺','🍃','🌼','🍂','🍁'];
-      function randomBetween(a,b){ return Math.random()*(b-a)+a; }
-      document.querySelectorAll('.falling-decor').forEach(container => {
-        function createLeaf() {
-          const el = document.createElement('span');
-          el.className = 'falling-emoji';
-          el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-          el.style.left = Math.round(randomBetween(2, 98)) + '%';
-          el.style.fontSize = randomBetween(1.2, 2.1) + 'em';
-          el.style.animationDuration = randomBetween(4.5,8.5) + 's';
-          el.style.opacity = randomBetween(0.65, 0.92);
-          el.style.transform = `rotate(${randomBetween(-30,30)}deg)`;
-          container.appendChild(el);
-          setTimeout(()=>el.remove(), 9000);
-        }
-        setInterval(() => {
-          if (container.closest('.glass')) {
-            if (getComputedStyle(container.closest('.glass')).display !== 'none')
-              createLeaf();
-          }
-        }, 1200);
-      });
     });
   </script>
 </body>
