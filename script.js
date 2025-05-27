@@ -46,7 +46,7 @@ if (rsvpForm) {
       whatsapp: rsvpForm.whatsapp.value.trim()
     };
     // Пример отправки в Google Apps Script Web App
-    fetch("https://script.google.com/macros/s/ВАШ_ID_СКРИПТА/exec", {
+    fetch("https://script.google.com/macros/s/AKfycby1Q04EL41Ew4bWDqtG_ajJ2hc4shlri-vQThV33vcb8LLWrWTox0lhxzTEGmkrzZAs/exec", {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
