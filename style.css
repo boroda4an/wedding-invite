@@ -1,18 +1,19 @@
 :root {
-  --main-bg: #fff7fa;            /* очень светлый розовый */
-  --main-bg-dark: #fff9f3;       /* кремовый */
-  --accent: #e36b9e;             /* насыщенный розовый */
-  --accent-light: #f9b5c4;       /* нежно-розовый */
-  --accent2: #845c49;            /* коричневый для иконок/текста */
-  --accent3: #ffe0a3;            /* золотой */
-  --glass-bg: linear-gradient(120deg, #fff7fa 60%, #ffe3ee 100%);
+  --main-bg: #f3f9f3;                /* светло-зелёный */
+  --main-bg-dark: #e1ecd8;           /* нежно-зелёный */
+  --accent: #7b9b59;                 /* фисташково-зелёный */
+  --accent-light: #b8d99f;           /* светло-фисташковый */
+  --accent2: #6d5e4f;                /* коричневый для текста/иконок */
+  --accent3: #ffe0a3;                /* золотой акцент */
+  --pink-accent: #f9b5c4;            /* нежно-розовый акцент */
+  --glass-bg: linear-gradient(120deg, #f3f9f3d9 65%, #e1ecd8cc 100%);
   --glass-bg-img: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABGklEQVQ4T2NkoBAwUqifwL+/v7/4z9dRk4GxK8Q/8ZiYGBgYGkA4n0kQMN4hP8PqK9/8XzCwMDAwMDAlQKxA4jJw3+p+D8l/9fBGxkZGSQF8P0P4r8JQqz8F4KQgoOLMABiQyQ6KgW1D0b8LwkjI4A5Fv1/4z8D8o/18kOQbK8CTxP2P8XxIL2k8j0QCZB+g8pPgf8P1Q/ifjvwfyzsD8c8h7F4A9hJwAAAwD6o3v5ZzDB2wAAAABJRU5ErkJggg==");
-  --glass-blur: 18px;
+  --glass-blur: 6px;
   --radius: 32px;
-  --shadow: 0 8px 36px rgba(227, 107, 158, 0.10);
-  --text: #845c49;
-  --text-dark: #63493b;
-  --h-glow: 0 0 24px #f9b5c499, 0 2px 8px #e36b9e44;
+  --shadow: 0 8px 36px rgba(123, 155, 89, 0.10);
+  --text: #44583c;
+  --text-dark: #314228;
+  --h-glow: 0 0 24px #b8d99f99, 0 2px 8px #7b9b5944;
   --main-font: 'Cormorant Garamond', serif;
   --header-font: 'Great Vibes', 'Parisienne', cursive;
 }
@@ -37,12 +38,12 @@ html, body {
   width: 100vw; height: 100vh;
   object-fit: cover;
   position: absolute; left: 0; top: 0;
-  filter: brightness(0.8) blur(0.5px) saturate(1.04);
+  filter: brightness(0.84) blur(2.5px) saturate(1.07) contrast(1.04);
   z-index: 0;
 }
 .bg-overlay {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 60% 10%, #ffe3ee44 0%, #fff7fa 95%);
+  background: radial-gradient(ellipse at 60% 10%, #b8d99f44 0%, #f3f9f3 95%);
   z-index: 1;
   pointer-events: none;
 }
@@ -139,7 +140,7 @@ main { z-index: 2; position: relative; }
   margin-bottom: 1.2em;
   font-weight: 500;
   letter-spacing: 1px;
-  text-shadow: 0 1px 6px #f9b5c466;
+  text-shadow: 0 1px 6px #b8d99f66;
   font-family: var(--main-font);
 }
 .countdown {
@@ -147,30 +148,66 @@ main { z-index: 2; position: relative; }
   font-size: 1.13rem;
   font-weight: 600;
   margin-bottom: 2em;
-  text-shadow: 0 0 8px #f9b5c455;
+  text-shadow: 0 0 8px #b8d99f55;
   letter-spacing: 1px;
   font-family: var(--main-font);
 }
+
 .btn, .main-btn {
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #fff !important;
-  text-shadow: 0 1px 8px #845c4999, 0 1px 0 #e36b9ecc;
+  text-shadow: 0 2px 12px #314228cc, 0 1px 0 #b8d99fcc;
   font-weight: 700;
   border: none;
+  border-radius: 30px;
+  padding: 0.8em 2.5em;
+  font-size: 1.18rem;
+  letter-spacing: 1.5px;
+  margin-top: 0.5em;
+  box-shadow: 0 4px 18px #7b9b5944;
+  cursor: pointer;
+  transition: 
+    background .24s, 
+    color .18s, 
+    box-shadow .19s, 
+    transform .14s;
 }
 .btn:active, .main-btn:active { color: #fff; }
+.main-btn {
+  /* слегка выделяем главную */
+  background: linear-gradient(90deg, var(--accent-light) 0%, var(--accent) 100%);
+  border: 2px solid var(--accent);
+}
+.btn:hover, .main-btn:hover {
+  background: linear-gradient(90deg, var(--accent), var(--accent3) 100%);
+  color: #fff !important;
+  box-shadow: 0 8px 32px #b8d99f99;
+  transform: translateY(-2px) scale(1.04);
+}
 
 .outline-btn {
-  background: #fff9f3cc;
-  color: var(--accent) !important;
-  border: 2px solid var(--accent);
+  background: #f3f9f3cc;
+  color: var(--accent2) !important;
+  border: 2px solid var(--accent2);
   text-shadow: none;
   font-weight: 700;
+  border-radius: 30px;
+  padding: 0.8em 2.5em;
+  font-size: 1.18rem;
+  letter-spacing: 1.2px;
+  box-shadow: 0 2px 10px #b8d99f22;
+  transition: 
+    background .21s, 
+    color .15s, 
+    box-shadow .19s, 
+    transform .14s;
 }
-.outline-btn:hover, .main-btn:hover {
+.outline-btn:hover {
   background: var(--accent-light);
   color: #fff !important;
-  text-shadow: 0 1px 8px #e36b9e99;
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px #b8d99f99;
+  transform: translateY(-2px) scale(1.04);
 }
 
 .glass {
@@ -214,7 +251,7 @@ h2 {
   text-align: center;
   color: var(--accent);
   margin-top: 0; margin-bottom: 1.6rem;
-  text-shadow: 0 2px 18px #f9b5c433;
+  text-shadow: 0 2px 18px #b8d99f33;
   letter-spacing: 1.5px;
   font-weight: 700;
 }
@@ -226,13 +263,13 @@ h2 {
   max-width: 420px;
 }
 #timeline .timeline li {
-  background: #f9b5c411;
+  background: #b8d99f22;
   margin-bottom: 1.3rem;
   border-radius: 1em;
   padding: 1rem 1.1rem;
   font-size: 1.17rem;
   color: var(--text-dark);
-  box-shadow: 0 2px 12px #f9b5c122;
+  box-shadow: 0 2px 12px #b8d99f19;
   position: relative;
   display: flex; align-items: center;
   opacity: 0.93;
@@ -256,18 +293,18 @@ h2 {
 #celebrate .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 #celebrate input, #celebrate select, #celebrate textarea {
   border-radius: 1em;
-  border: 1.5px solid #f9b5c144;
+  border: 1.5px solid #b8d99f44;
   background: #fff;
   font-size: 1.07rem;
   padding: 0.7em 1em;
   transition: border .2s, box-shadow .2s;
   width: 100%;
   font-family: var(--main-font);
-  color: #63493b;
+  color: #314228;
 }
 #celebrate textarea { resize: vertical; min-height: 44px; }
 #celebrate input:focus, #celebrate textarea:focus, #celebrate select:focus {
-  border-color: var(--accent); box-shadow: 0 2px 12px #f9b5c133;
+  border-color: var(--accent); box-shadow: 0 2px 12px #b8d99f33;
 }
 #celebrate button { margin-top: 0.8rem; }
 #celebrate .thanks {
@@ -278,7 +315,7 @@ h2 {
   margin: 2em auto 1em auto;
   font-size: 1.26em;
   color: var(--accent2);
-  box-shadow: 0 4px 32px #f9b5c133;
+  box-shadow: 0 4px 32px #b8d99f33;
   text-align: center;
   opacity: 0;
   transform: translateY(40px) scale(0.97);
@@ -295,9 +332,9 @@ h2 {
   animation: thanks-pop 1.3s .25s cubic-bezier(.5,1.6,.55,.92);
 }
 @keyframes thanks-pop {
-  0%   { box-shadow: 0 4px 32px #f9b5c133; }
-  40%  { box-shadow: 0 4px 60px #f9b5c1cc; }
-  100% { box-shadow: 0 4px 32px #f9b5c133; }
+  0%   { box-shadow: 0 4px 32px #b8d99f33; }
+  40%  { box-shadow: 0 4px 60px #b8d99fcc; }
+  100% { box-shadow: 0 4px 32px #b8d99f33; }
 }
 .thanks-heart {
   display: inline-block;
@@ -306,7 +343,7 @@ h2 {
   margin-top: -.3em;
   vertical-align: middle;
   animation: heart-beat 1.2s infinite cubic-bezier(.8,.2,.2,1.2), thanks-heart-fadein .6s;
-  filter: drop-shadow(0 0 12px #e36b9e80);
+  filter: drop-shadow(0 0 12px #7b9b5980);
 }
 @keyframes heart-beat {
   0%, 100% { transform: scale(1);}
@@ -320,7 +357,7 @@ h2 {
   to   { opacity: 1; transform: scale(1);}
 }
 #celebrate .thanks.hidden { display: none; }
-#celebrate .note {font-size:0.96em;color:#e36b9eca;margin-top:1.1em; text-align:center;}
+#celebrate .note {font-size:0.96em;color:#6d5e4fca;margin-top:1.1em; text-align:center;}
 
 /* Подарки и дресс-код */
 #gifts .gifts-block {
@@ -334,7 +371,7 @@ h2 {
   vertical-align: middle;
   margin-bottom: .12em;
   color: var(--accent);
-  filter: drop-shadow(0 0 8px #f9b5c4);
+  filter: drop-shadow(0 0 8px #b8d99f);
 }
 .gift-main {
   color: var(--accent);
@@ -348,7 +385,7 @@ h2 {
 .gift-hr {
   margin: 1.6em auto 1.2em auto;
   border: none;
-  border-top: 2px dashed #f9b5c4;
+  border-top: 2px dashed #b8d99f;
   width: 60%;
   opacity: .38;
 }
@@ -398,13 +435,13 @@ h2 {
 footer { text-align: center; padding: 2rem 0 0.7rem 0; z-index: 2; position: relative; font-family: var(--main-font);}
 footer p { color: var(--accent2); font-size: 1.03em; letter-spacing: 1px; }
 
-::-webkit-scrollbar {width: 8px;background: #ffe3ee;}
-::-webkit-scrollbar-thumb {background: #f9b5c133;border-radius:6px;}
+::-webkit-scrollbar {width: 8px;background: #e1ecd8;}
+::-webkit-scrollbar-thumb {background: #b8d99f33;border-radius:6px;}
 
 /* === Модальное окно календаря === */
 .calendar-modal {
   position: fixed; inset: 0; z-index: 9999;
-  background: rgba(255,247,250,0.85);
+  background: rgba(243,249,243,0.85);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none; transition: opacity .3s;
 }
@@ -412,9 +449,9 @@ footer p { color: var(--accent2); font-size: 1.03em; letter-spacing: 1px; }
   opacity: 1; pointer-events: auto;
 }
 .calendar-modal-content {
-  background: #ffe0a3; color: #845c49;
+  background: #ffe0a3; color: #314228;
   border-radius: 1.5em; padding: 2em 2.5em;
-  text-align: center; box-shadow: 0 8px 40px #f9b5c144;
+  text-align: center; box-shadow: 0 8px 40px #b8d99f44;
 }
 .calendar-modal .btn { margin: 0 0.6em; }
 
