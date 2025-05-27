@@ -12,7 +12,7 @@ function updateTimer() {
   const m = Math.floor(diff / (1000*60)) % 60;
   const s = Math.floor(diff / 1000) % 60;
   document.getElementById('timer').textContent =
-    `До свадьбы осталось: ${d} дн. ${h} ч. ${m} мин. ${s} сек.`;
+    `До свадьбы: ${d} дн. ${h} ч. ${m} мин. ${s} сек.`;
 }
 setInterval(updateTimer, 1000);
 updateTimer();
