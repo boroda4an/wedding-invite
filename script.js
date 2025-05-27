@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e){
       e.preventDefault();
       const formData = new FormData(form);
-      fetch('https://script.google.com/macros/s/14F8zNzVtTeBvTUfjrG7u0n-RHdTcuwTgaIoVDJtZaCn4hX-pXCr-LggZ/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbxCFFQRsd9qfe64pzOb7FE5AyhlFeHI04u2kKRvEH-u4cgioaZJ0lPJ2AJwv2N2J4If/exec', {
         method: 'POST',
         body: formData
       }).then(function(response){
