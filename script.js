@@ -84,8 +84,11 @@ if (rsvpForm && thanksBlock) {
     thanksBlock.classList.add('visible');
     setTimeout(() => {
       thanksBlock.classList.remove('visible');
-      // После исчезновения "Спасибо" показываем календарное окно
-      if (calendarModal) calendarModal.classList.add('visible');
+      // После исчезновения "Спасибо" показываем календарное окно:
+      if (calendarModal) {
+        calendarModal.classList.remove('hidden');
+        calendarModal.classList.add('visible');
+      }
     }, 4000);
     rsvpForm.reset();
   };
@@ -96,8 +99,10 @@ if (calendarYes && calendarNo && calendarModal) {
   calendarYes.onclick = function() {
     downloadICS();
     calendarModal.classList.remove('visible');
+    calendarModal.classList.add('hidden');
   };
   calendarNo.onclick = function() {
     calendarModal.classList.remove('visible');
+    calendarModal.classList.add('hidden');
   };
 }
